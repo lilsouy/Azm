@@ -1,5 +1,5 @@
 import streamlit as st
-from Nuha import ask_azm
+from engine import ask_azm
 
 st.set_page_config(page_title="عزم", page_icon="✦", layout="centered")
 
