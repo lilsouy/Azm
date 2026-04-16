@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 python
+=======
+openai
+streamlit
+>>>>>>> 99dc935a801ddc39961a8b5ed17d748b3b0d7f29

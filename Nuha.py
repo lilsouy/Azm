@@ -5,6 +5,7 @@ client = OpenAI(
     base_url="https://elmodels.ngrok.app/v1"
 )
 
+
 def ask_nuha(prompt, use_streaming=True):
     response = client.chat.completions.create(
         model="nuha-2.0",
@@ -19,5 +20,6 @@ def ask_nuha(prompt, use_streaming=True):
         print()
     else:
         print(response.choices[0].message.content)
+
 
 ask_nuha("كيف حالك؟", use_streaming=True)
