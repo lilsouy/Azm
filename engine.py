@@ -1,4 +1,3 @@
-
 from openai import OpenAI
 
 from typing import Optional, Dict, Any
