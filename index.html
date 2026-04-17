@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عزم ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p600: #534AB7;
+  --p500: #6B62C8;
+  --p400: #7F77DD;
+  --p200: #AFA9EC;
+  --p100: #CECBF6;
+  --p50:  #EEEDFE;
+  --amber: #F6A623;
+  --amber-bg: #FFF7E8;
+  --amber-border: #F6D28B;
+  --green: #1D9E75;
+  --green-bg: #E1F5EE;
+  --bg: #F7F6FB;
+  --card: #FFFFFF;
+  --text: #1A1730;
+  --muted: #6B6880;
+  --border: #E5E3F5;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 2px 16px rgba(83,74,183,0.08);
+  --shadow-lg: 0 8px 40px rgba(83,74,183,0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Onboarding ── */
+.onboarding {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 28px;
+  gap: 28px;
+}
+
+.onboarding-icon {
+  font-size: 48px;
+  text-align: center;
+}
+
+.onboarding h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--p600);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.onboarding p {
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.step-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.step-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--p100);
+  transition: background .3s, transform .3s;
+}
+.step-dot.active { background: var(--p600); transform: scale(1.3); }
+
+.field-group { display: flex; flex-direction: column; gap: 10px; }
+
+.field-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--card);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  resize: none;
+  direction: rtl;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: var(--p400);
+  box-shadow: 0 0 0 3px rgba(83,74,183,0.1);
+}
+
+.btn {
+  padding: 13px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+  text-align: center;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary {
+  background: var(--p600);
+  color: white;
+  width: 100%;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-ghost {
+  background: var(--p50);
+  color: var(--p600);
+  border: 1.5px solid var(--p100);
+}
+.btn-ghost:hover { background: var(--p100); }
+
+/* ── Chat Screen ── */
+.chat-header {
+  background: var(--p600);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.chat-header .logo {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chat-header .user-name {
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+}
+
+.dream-bar {
+  background: var(--p50);
+  border-bottom: 1px solid var(--p100);
+  padding: 9px 18px;
+  font-size: 12.5px;
+  color: var(--p600);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.points-bar {
+  background: var(--amber-bg);
+  border-bottom: 1px solid var(--amber-border);
+  padding: 8px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.points-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A4B00;
+}
+.level-label {
+  font-size: 12px;
+  color: #6B5E2E;
+}
+
+.progress-track {
+  height: 4px;
+  background: var(--border);
+  flex: 1;
+  border-radius: 2px;
+  margin: 0 12px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 2px;
+  transition: width .5s ease;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scroll-behavior: smooth;
+}
+
+.msg { display: flex; gap: 8px; max-width: 86%; animation: msgIn .25s ease; }
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msg.bot { align-self: flex-end; }
+.msg.user { align-self: flex-start; flex-direction: row-reverse; }
+
+.avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--p50);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.bubble.bot {
+  background: var(--p50);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.bubble.user {
+  background: var(--p600);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* typing indicator */
+.typing { display: flex; align-items: center; gap: 4px; padding: 12px 14px; }
+.typing span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--p400);
+  animation: blink .9s infinite;
+}
+.typing span:nth-child(2) { animation-delay: .15s; }
+.typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes blink {
+  0%,80%,100% { transform: scale(.7); opacity:.5; }
+  40% { transform: scale(1); opacity:1; }
+}
+
+/* ── Emotion Picker ── */
+.emotion-section {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 0 18px;
+  flex-shrink: 0;
+}
+.emotion-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.emotion-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.emo-btn {
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--muted);
+  transition: all .18s;
+}
+.emo-btn:hover, .emo-btn.selected {
+  background: var(--p50);
+  border-color: var(--p400);
+  color: var(--p600);
+  font-weight: 500;
+}
+
+/* ── Tasks ── */
+.tasks-section {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 0 18px;
+  flex-shrink: 0;
+}
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tasks-header h3 { font-size: 14px; font-weight: 600; }
+.tasks-count { font-size: 12px; color: var(--muted); }
+
+.task-progress {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.task-progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.task-item:last-of-type { border-bottom: none; }
+.task-item.done { opacity: .5; }
+
+.task-checkbox {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--p200);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .18s, border-color .18s;
+}
+.task-item.done .task-checkbox {
+  background: var(--green);
+  border-color: var(--green);
+}
+.task-checkbox svg { display: none; }
+.task-item.done .task-checkbox svg { display: block; }
+
+.task-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.task-item.done .task-text { text-decoration: line-through; color: var(--muted); }
+
+/* ── Spark Button ── */
+.spark-btn {
+  width: calc(100% - 36px);
+  margin: 12px 18px;
+  background: var(--p600);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity .2s, transform .15s;
+  flex-shrink: 0;
+}
+.spark-btn:hover { opacity: .88; }
+.spark-btn:active { transform: scale(0.98); }
+
+/* ── Timer ── */
+.timer-section {
+  background: linear-gradient(135deg, #2A2260, #534AB7);
+  border-radius: var(--radius);
+  margin: 0 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.timer-ring-wrap { position: relative; width: 200px; height: 200px; }
+.timer-ring-wrap svg { transform: rotate(-90deg); }
+.timer-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.timer-label { font-size: 12px; color: rgba(255,255,255,.6); margin-bottom: 4px; }
+.timer-display {
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+.timer-sub { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; }
+.timer-stop-btn {
+  background: rgba(255,255,255,.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  padding: 9px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .18s;
+}
+.timer-stop-btn:hover { background: rgba(255,255,255,.2); }
+
+/* ── Input Area ── */
+.input-area {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-shrink: 0;
+  background: var(--card);
+}
+.input-area textarea {
+  flex: 1;
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-height: 120px;
+  min-height: 42px;
+}
+.send-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--p600);
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .2s, transform .15s;
+}
+.send-btn:hover { opacity: .88; }
+.send-btn:active { transform: scale(0.93); }
+
+/* ── Utilities ── */
+.hidden { display: none !important; }
+
+/* confetti */
+.confetti-container {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px; height: 10px;
+  animation: confettiFall 2.5s ease-in forwards;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- ══ Onboarding ══ -->
+  <div class="onboarding" id="screen-onboarding">
+    <div class="onboarding-icon" id="ob-icon">✨</div>
+    <div>
+      <h1 id="ob-title">مرحباً في عزم</h1>
+      <p id="ob-sub">أنا مدربك الذكي اللي يساعدك تبدأ</p>
+    </div>
+    <div class="step-dots" id="step-dots"></div>
+    <div class="field-group">
+      <label id="ob-label">ما اسمك؟</label>
+      <input type="text" id="ob-input" placeholder="اكتب هنا" autocomplete="off" />
+    </div>
+    <button class="btn btn-primary" id="ob-next">التالي ←</button>
+  </div>
+
+  <!-- ══ Chat Screen ══ -->
+  <div id="screen-chat" class="hidden" style="display:flex;flex-direction:column;flex:1;min-height:100vh;">
+
+    <div class="chat-header">
+      <div class="logo">✨ عزم</div>
+      <div class="user-name" id="header-name"></div>
+    </div>
+
+    <div class="dream-bar" id="dream-bar">
+      ✨ <span id="dream-text"></span>
+    </div>
+
+    <div class="points-bar">
+      <span class="points-label" id="pts-label">⚡ 0 نقطة</span>
+      <div class="progress-track">
+        <div class="progress-fill" id="pts-progress" style="width:0%"></div>
+      </div>
+      <span class="level-label" id="level-label">مبتدئة</span>
+    </div>
+
+    <div class="messages" id="messages"></div>
+
+    <!-- Emotion Picker (hidden until needed) -->
+    <div class="emotion-section hidden" id="emotion-section">
+      <h3>كيف تشعر تجاه هذه المهمة؟</h3>
+      <div class="emotion-grid" id="emotion-grid"></div>
+    </div>
+
+    <!-- Tasks (hidden until generated) -->
+    <div class="tasks-section hidden" id="tasks-section">
+      <div class="tasks-header">
+        <h3>✨ خطوات التنفيذ</h3>
+        <span class="tasks-count" id="tasks-count">0/0</span>
+      </div>
+      <div class="task-progress">
+        <div class="task-progress-fill" id="task-progress-fill" style="width:0%"></div>
+      </div>
+      <div id="tasks-list"></div>
+    </div>
+
+    <!-- Spark button -->
+    <button class="spark-btn hidden" id="spark-btn">
+      ⚡ شرارة العزم — ابدأ 7 دقائق
+    </button>
+
+    <!-- Timer -->
+    <div class="timer-section hidden" id="timer-section">
+      <div class="timer-ring-wrap">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="85" stroke="rgba(255,255,255,0.15)" stroke-width="12" fill="none"/>
+          <circle id="timer-ring" cx="100" cy="100" r="85"
+                  stroke="#A79FF7" stroke-width="12" fill="none"
+                  stroke-linecap="round"
+                  stroke-dasharray="534"
+                  stroke-dashoffset="0"/>
+        </svg>
+        <div class="timer-center">
+          <div class="timer-label">⚡ شرارة العزم</div>
+          <div class="timer-display" id="timer-display">07:00</div>
+          <div class="timer-sub">ركز على خطوة واحدة</div>
+        </div>
+      </div>
+      <button class="timer-stop-btn" id="timer-stop">⏹ إيقاف</button>
+    </div>
+
+    <div class="input-area">
+      <button class="send-btn" id="send-btn">↑</button>
+      <textarea id="chat-input" placeholder="أخبر عزم كيف تشعر وما هي مهمتك..." rows="1"></textarea>
+    </div>
+
+  </div>
+</div>
+
+<!-- confetti container -->
+<div class="confetti-container hidden" id="confetti"></div>
+
+<script>
+const API = 'http://localhost:8000';
+
+const state = {
+  step: 0,
+  profile: {},
+  messages: [],
+  points: 0,
+  tasks: [],
+  pendingTask: null,
+  timerInterval: null,
+  timerSeconds: 420,
+  loading: false
+};
+
+const steps = [
+  { key:'name',        icon:'✨', title:'مرحباً في عزم',         sub:'أنا مدربك الذكي اللي يساعدك تبدأ',           label:'ما اسمك؟',                                  ph:'اكتب اسمك هنا' },
+  { key:'big_goal',    icon:'🎯', title:'هدفك الكبير',            sub:'اللي يحركك من الداخل',                       label:'إيش أكبر هدف تشتغل عليه هالفصل؟',          ph:'مثلاً: أتخرج بتقدير ممتاز' },
+  { key:'medium_goal', icon:'📅', title:'هدفك الأسبوعي',          sub:'خطوة واضحة نحو هدفك الكبير',                label:'إيش أهم شيء تبغى تنجزه هالأسبوع؟',        ph:'مهمة محددة' },
+  { key:'dream',       icon:'🌟', title:'حلمك',                   sub:'الصورة اللي تحفزك',                          label:'كيف تتخيل نفسك لما تحقق هدفك؟',            ph:'صف الشعور أو المشهد' },
+];
+
+const emotions = ['قلق','خوف من الفشل','كسل','كمالية','تشتت','مرهق','مو متحمس'];
+const emoReplies = {
+  'قلق':            'واضح إنك مهتم بالمهمة، خلنا نبسطها سوا.',
+  'خوف من الفشل':   'مو لازم تنجزها كاملة الآن، يكفي تبدأ بداية بسيطة.',
+  'كسل':            'يمكن مو كسل، يمكن المهمة طالعة أكبر من حجمها الحقيقي.',
+  'كمالية':         'ما نحتاج نسخة مثالية، نحتاج بداية فقط.',
+  'تشتت':           'خلنا نمسك أول خطوة فقط ونترك الباقي بعدين.',
+  'مرهق':           'بناخذ أصغر خطوة ممكنة، شيء خفيف عليك.',
+  'مو متحمس':       'مو لازم الحماس يسبق البداية، أحيانًا البداية هي اللي تجيب الحماس.'
+};
+
+function getLevel(pts) {
+  if (pts < 50)  return { name:'مبتدئة',  min:0,   max:50  };
+  if (pts < 120) return { name:'منطلقة',  min:50,  max:120 };
+  if (pts < 220) return { name:'مثابرة',  min:120, max:220 };
+  if (pts < 350) return { name:'منجزة',   min:220, max:350 };
+  return             { name:'أسطورية', min:350, max:500 };
+}
+
+function updatePoints(delta = 0) {
+  state.points += delta;
+  const lv = getLevel(state.points);
+  const pct = Math.round(((state.points - lv.min) / (lv.max - lv.min)) * 100);
+  document.getElementById('pts-label').textContent = `⚡ ${state.points} نقطة`;
+  document.getElementById('pts-progress').style.width = pct + '%';
+  document.getElementById('level-label').textContent = lv.name;
+}
+
+// ── Onboarding ───────────────────────────────────────────────
+function renderStep() {
+  const s = steps[state.step];
+  document.getElementById('ob-icon').textContent = s.icon;
+  document.getElementById('ob-title').textContent = s.title;
+  document.getElementById('ob-sub').textContent   = s.sub;
+  document.getElementById('ob-label').textContent  = s.label;
+  document.getElementById('ob-input').placeholder  = s.ph;
+  document.getElementById('ob-input').value = state.profile[s.key] || '';
+
+  const dots = document.getElementById('step-dots');
+  dots.innerHTML = steps.map((_, i) =>
+    `<div class="step-dot ${i === state.step ? 'active' : ''}"></div>`
+  ).join('');
+
+  document.getElementById('ob-next').textContent =
+    state.step === steps.length - 1 ? 'ابدأ رحلتي ✨' : 'التالي ←';
+
+  setTimeout(() => document.getElementById('ob-input').focus(), 50);
+}
+
+document.getElementById('ob-next').addEventListener('click', advanceStep);
+document.getElementById('ob-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') advanceStep();
+});
+
+function advanceStep() {
+  const val = document.getElementById('ob-input').value.trim();
+  if (!val) return;
+  state.profile[steps[state.step].key] = val;
+
+  if (state.step < steps.length - 1) {
+    state.step++;
+    renderStep();
+  } else {
+    startChat();
+  }
+}
+
+// ── Chat Init ────────────────────────────────────────────────
+function startChat() {
+  document.getElementById('screen-onboarding').classList.add('hidden');
+  const chatScreen = document.getElementById('screen-chat');
+  chatScreen.classList.remove('hidden');
+  chatScreen.style.display = 'flex';
+
+  document.getElementById('header-name').textContent = state.profile.name;
+  document.getElementById('dream-text').textContent  = state.profile.dream;
+  updatePoints(0);
+
+  const greeting = `أهلاً ${state.profile.name}! 🌟\n\nأنا عزم، رفيقك في رحلة الإنجاز.\n\nهدفك الأسبوعي: "${state.profile.medium_goal}"\n\nوش المهمة اللي موقفك اليوم؟`;
+  addMessage('bot', greeting);
+  setupInput();
+}
+
+// ── Messages ─────────────────────────────────────────────────
+function addMessage(role, text) {
+  state.messages.push({ role, content: text });
+  renderMessage(role, text);
+  scrollBottom();
+}
+
+function renderMessage(role, text) {
+  const wrap = document.createElement('div');
+  wrap.className = `msg ${role}`;
+
+  if (role === 'bot') {
+    wrap.innerHTML = `<div class="avatar">✨</div><div class="bubble bot">${escHtml(text)}</div>`;
+  } else {
+    wrap.innerHTML = `<div class="bubble user">${escHtml(text)}</div>`;
+  }
+  document.getElementById('messages').appendChild(wrap);
+}
+
+function showTyping() {
+  const el = document.createElement('div');
+  el.className = 'msg bot'; el.id = 'typing-indicator';
+  el.innerHTML = `<div class="avatar">✨</div><div class="bubble bot"><div class="typing"><span></span><span></span><span></span></div></div>`;
+  document.getElementById('messages').appendChild(el);
+  scrollBottom();
+}
+function hideTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+function scrollBottom() {
+  const m = document.getElementById('messages');
+  m.scrollTop = m.scrollHeight;
+}
+
+// ── Input ────────────────────────────────────────────────────
+function setupInput() {
+  const input = document.getElementById('chat-input');
+  const btn   = document.getElementById('send-btn');
+
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  btn.addEventListener('click', send);
+}
+
+async function send() {
+  const input = document.getElementById('chat-input');
+  const text  = input.value.trim();
+  if (!text || state.loading) return;
+  input.value = '';
+  input.style.height = 'auto';
+  addMessage('user', text);
+  state.loading = true;
+
+  const taskKw = ['مهمة','مذاكر','مشروع','تقرير','واجب','اذاكر','أذاكر','ابدأ','كتاب','بحث','امتحان','برمجة','كود'];
+  const hasTask = taskKw.some(kw => text.includes(kw));
+
+  showTyping();
+  try {
+    const res = await fetch(`${API}/chat`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ messages: state.messages, profile: state.profile })
+    });
+    const data = await res.json();
+    hideTyping();
+    addMessage('bot', data.reply);
+
+    if (hasTask && !state.tasks.length) {
+      state.pendingTask = text;
+      showEmotionPicker();
+    }
+  } catch(e) {
+    hideTyping();
+    addMessage('bot', 'ما قدرت أتصل بالسيرفر، تأكد إن الـ API شغال.');
+  }
+  state.loading = false;
+}
+
+// ── Emotion Picker ───────────────────────────────────────────
+function showEmotionPicker() {
+  const section = document.getElementById('emotion-section');
+  const grid    = document.getElementById('emotion-grid');
+  grid.innerHTML = emotions.map(e =>
+    `<button class="emo-btn" data-emo="${e}">${e}</button>`
+  ).join('');
+
+  grid.querySelectorAll('.emo-btn').forEach(btn => {
+    btn.addEventListener('click', () => selectEmotion(btn.dataset.emo));
+  });
+
+  section.classList.remove('hidden');
+  scrollBottom();
+}
+
+async function selectEmotion(emo) {
+  document.getElementById('emotion-section').classList.add('hidden');
+  addMessage('user', `شعوري: ${emo}`);
+  addMessage('bot', emoReplies[emo] || 'خلنا نبدأ بخطوة صغيرة.');
+  updatePoints(10);
+  await loadSteps(state.pendingTask);
+}
+
+// ── Steps / Tasks ────────────────────────────────────────────
+async function loadSteps(taskText) {
+  showTyping();
+  try {
+    const res = await fetch(`${API}/steps`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ task: taskText, profile: state.profile })
+    });
+    const data = await res.json();
+    hideTyping();
+    state.tasks = (data.steps || []).filter(s => s.trim()).map(s => ({ text:s, done:false }));
+
+    if (state.tasks.length) {
+      addMessage('bot', 'جهزت لك خطوات تنفيذ واضحة ✨ تلقيها تحت، ابدأ بأول خطوة فقط.');
+      renderTasks();
+      updatePoints(0);
+    } else {
+      addMessage('bot', 'ما قدرت أطلع خطوات واضحة، جرب تكتب المهمة بشكل أوضح شوي.');
+    }
+  } catch(e) {
+    hideTyping();
+    addMessage('bot', 'ما قدرت أولد الخطوات الآن، جرب مرة ثانية.');
+  }
+}
+
+function renderTasks() {
+  const section = document.getElementById('tasks-section');
+  const list    = document.getElementById('tasks-list');
+  section.classList.remove('hidden');
+
+  list.innerHTML = state.tasks.map((t, i) => `
+    <div class="task-item ${t.done ? 'done' : ''}" id="task-${i}" data-idx="${i}">
+      <div class="task-checkbox">
+        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+          <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="task-text">${escHtml(t.text)}</span>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.task-item').forEach(item => {
+    item.addEventListener('click', () => toggleTask(parseInt(item.dataset.idx)));
+  });
+
+  updateTaskProgress();
+  document.getElementById('spark-btn').classList.remove('hidden');
+  document.getElementById('spark-btn').addEventListener('click', startTimer, { once: true });
+  scrollBottom();
+}
+
+function toggleTask(idx) {
+  if (state.tasks[idx].done) return;
+  state.tasks[idx].done = true;
+  updatePoints(15);
+
+  const item = document.getElementById(`task-${idx}`);
+  item.classList.add('done');
+  updateTaskProgress();
+
+  const done  = state.tasks.filter(t => t.done).length;
+  const total = state.tasks.length;
+
+  if (done === total) {
+    addMessage('bot', `أبدعت! خلصت كل الخطوات 🎉\n\nاقتربت من هدفك — "${state.profile.big_goal}" صار أقرب اليوم.`);
+    launchConfetti();
+  } else {
+    const next = state.tasks.find(t => !t.done);
+    if (next) addMessage('bot', `أحسنت! +15 نقطة ✨\n\nالخطوة الجاية: ${next.text}`);
+  }
+}
+
+function updateTaskProgress() {
+  const done  = state.tasks.filter(t => t.done).length;
+  const total = state.tasks.length;
+  const pct   = total ? Math.round((done / total) * 100) : 0;
+  document.getElementById('task-progress-fill').style.width = pct + '%';
+  document.getElementById('tasks-count').textContent = `${done}/${total}`;
+}
+
+// ── Timer ────────────────────────────────────────────────────
+function startTimer() {
+  const firstUndone = state.tasks.find(t => !t.done);
+  addMessage('bot', `اشتغلت شرارة العزم ⚡\n\nركز 7 دقائق فقط على:\n${firstUndone ? firstUndone.text : 'أول خطوة'}\n\nاقفل أي شيء يشتتك وابدأ الآن.`);
+  updatePoints(5);
+
+  document.getElementById('spark-btn').classList.add('hidden');
+  const timerSection = document.getElementById('timer-section');
+  timerSection.classList.remove('hidden');
+  scrollBottom();
+
+  state.timerSeconds = 420;
+  updateTimerDisplay();
+
+  state.timerInterval = setInterval(() => {
+    state.timerSeconds--;
+    updateTimerDisplay();
+    if (state.timerSeconds <= 0) {
+      clearInterval(state.timerInterval);
+      timerDone();
+    }
+  }, 1000);
+
+  document.getElementById('timer-stop').addEventListener('click', () => {
+    clearInterval(state.timerInterval);
+    document.getElementById('timer-section').classList.add('hidden');
+    document.getElementById('spark-btn').classList.remove('hidden');
+    document.getElementById('spark-btn').addEventListener('click', startTimer, { once: true });
+  }, { once: true });
+}
+
+function updateTimerDisplay() {
+  const total = 420;
+  const elapsed = total - state.timerSeconds;
+  const pct = elapsed / total;
+  const circumference = 534;
+  const offset = circumference * (1 - pct);
+
+  document.getElementById('timer-ring').style.strokeDashoffset = offset;
+  const m = String(Math.floor(state.timerSeconds / 60)).padStart(2, '0');
+  const s = String(state.timerSeconds % 60).padStart(2, '0');
+  document.getElementById('timer-display').textContent = `${m}:${s}`;
+}
+
+function timerDone() {
+  document.getElementById('timer-section').classList.add('hidden');
+  updatePoints(20);
+  addMessage('bot', 'خلصت 7 دقائق! 🔥 ممتاز جداً.\n\nعلّم الخطوة اللي خلصتها وخذ نقاطك.');
+  launchConfetti();
+  scrollBottom();
+}
+
+// ── Confetti ─────────────────────────────────────────────────
+function launchConfetti() {
+  const container = document.getElementById('confetti');
+  container.classList.remove('hidden');
+  container.innerHTML = '';
+  const colors = ['#534AB7','#A79FF7','#F6A623','#1D9E75','#F472B6'];
+  for (let i = 0; i < 60; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left:${Math.random()*100}%;
+      top:-10px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:${Math.random()>0.5?'50%':'2px'};
+      width:${6+Math.random()*8}px;
+      height:${6+Math.random()*8}px;
+      animation-delay:${Math.random()*1.2}s;
+      animation-duration:${2+Math.random()*1.5}s;
+    `;
+    container.appendChild(el);
+  }
+  setTimeout(() => { container.classList.add('hidden'); container.innerHTML=''; }, 4000);
+}
+
+// ── Utils ────────────────────────────────────────────────────
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+// ── Boot ─────────────────────────────────────────────────────
+renderStep();
+</script>
+</body>
+</html>
