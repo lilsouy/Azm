@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عزم ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --p700: #4538b8;
+      --p600: #5b50d6;
+      --p500: #746beb;
+      --p400: #8e87ff;
+      --p300: #b1acff;
+      --p200: #d7d4ff;
+      --p100: #f1efff;
+
+      --amber: #f6a623;
+      --amber-bg: #fff7e8;
+      --amber-border: #f4d28c;
+
+      --green: #1fa97a;
+      --green-bg: #e8fbf4;
+      --green-border: #b9ecd9;
+
+      --bg: #f7f8fc;
+      --bg-soft: #eef1fb;
+      --card: rgba(255,255,255,0.76);
+      --card-solid: #ffffff;
+      --text: #171429;
+      --muted: #7b7794;
+      --border: rgba(91,80,214,0.08);
+
+      --shadow: 0 18px 40px rgba(62, 50, 160, 0.08);
+      --shadow-lg: 0 24px 70px rgba(62, 50, 160, 0.14);
+
+      --header-bg: rgba(255,255,255,0.68);
+      --header-border: rgba(91,80,214,0.08);
+      --input-bg: #ffffff;
+      --bot-bubble: #f4f2ff;
+      --user-bubble: linear-gradient(135deg, #5b50d6, #7c71f0);
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --page-max: 1320px;
+      --sidebar-w: 380px;
+    }
+
+    body.dark {
+      --p700: #a097ff;
+      --p600: #8b82ff;
+      --p500: #a39cff;
+      --p400: #b8b3ff;
+      --p300: #5f5aaf;
+      --p200: #3d396f;
+      --p100: #29254d;
+
+      --amber: #ffbb54;
+      --amber-bg: #2f2717;
+      --amber-border: #5a4723;
+
+      --green: #36c897;
+      --green-bg: #17382f;
+      --green-border: #245444;
+
+      --bg: #0b0e19;
+      --bg-soft: #101425;
+      --card: rgba(22, 26, 43, 0.78);
+      --card-solid: #181b2e;
+      --text: #f5f4ff;
+      --muted: #b1aec8;
+      --border: rgba(255,255,255,0.06);
+
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+      --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.34);
+
+      --header-bg: rgba(24,27,46,0.66);
+      --header-border: rgba(255,255,255,0.05);
+      --input-bg: #13172a;
+      --bot-bubble: #222845;
+      --user-bubble: linear-gradient(135deg, #6c60ff, #8d84ff);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background:
+        radial-gradient(circle at top center, rgba(116,107,235,0.13), transparent 22%),
+        radial-gradient(circle at 20% 20%, rgba(255,187,84,0.08), transparent 18%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      color: var(--text);
+      transition: background .25s ease, color .25s ease;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: var(--page-max);
+      min-height: 100vh;
+      position: relative;
+      padding: 18px;
+    }
+
+    .hidden { display: none !important; }
+
+    button, input, textarea { font-family: inherit; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow:
+        0 18px 40px rgba(62, 50, 160, 0.08),
+        0 1px 0 rgba(255,255,255,0.42) inset;
+      backdrop-filter: blur(18px);
+    }
+
+    /* Onboarding */
+    .onboarding {
+      min-height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 22px;
+      gap: 22px;
+    }
+
+    .ob-top {
+      width: 100%;
+      max-width: 620px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      box-shadow: var(--shadow-lg);
+      padding: 34px 28px;
+      backdrop-filter: blur(16px);
+    }
+
+    .onboarding-icon {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.6), transparent 28%),
+        linear-gradient(135deg, rgba(116,107,235,0.18), rgba(255,255,255,0.14));
+      font-size: 46px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.5),
+        0 14px 30px rgba(91,80,214,0.12);
+    }
+
+    .onboarding h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--p700);
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .onboarding p {
+      font-size: 15px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .theme-inline {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .theme-toggle,
+    .icon-btn,
+    .ghost-btn,
+    .plan-btn,
+    .chat-toggle-btn,
+    .timer-stop-btn {
+      transition: .2s ease;
+    }
+
+    .theme-toggle,
+    .icon-btn {
+      border: 1px solid var(--border);
+      background: var(--card-solid);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .theme-toggle {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .theme-toggle:hover,
+    .icon-btn:hover,
+    .ghost-btn:hover,
+    .plan-btn:hover,
+    .chat-toggle-btn:hover,
+    .send-btn:hover,
+    .timer-stop-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .step-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--p200);
+      transition: .25s ease;
+    }
+
+    .step-dot.active {
+      width: 24px;
+      background: var(--p600);
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field-group label {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--input-bg);
+      color: var(--text);
+      padding: 14px 16px;
+      font-size: 15px;
+      outline: none;
+      transition: .2s ease;
+      resize: none;
+      direction: rtl;
+    }
+
+    input[type="text"]::placeholder,
+    textarea::placeholder {
+      color: var(--muted);
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: var(--p500);
+      box-shadow: 0 0 0 4px rgba(116,107,235,0.12);
+    }
+
+    .btn {
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, var(--p700), var(--p500));
+      color: white;
+      box-shadow: 0 14px 28px rgba(91,80,214,0.22);
+    }
+
+    .ob-helper {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Main */
+    #screen-chat {
+      min-height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .topbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .chat-header {
+      background: var(--header-bg);
+      border: 1px solid var(--header-border);
+      box-shadow:
+        0 14px 32px rgba(62, 50, 160, 0.08),
+        0 1px 0 rgba(255,255,255,0.35) inset;
+      border-radius: 24px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-side {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.36), transparent 28%),
+        linear-gradient(135deg, var(--p700), var(--p400));
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 12px 24px rgba(91,80,214,0.24);
+      flex-shrink: 0;
+    }
+
+    .logo-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .logo-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--sidebar-w);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .main-column,
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .summary-card,
+    .points-card,
+    .focus-card,
+    .emotion-section,
+    .tasks-section,
+    .timer-section,
+    .chat-panel {
+      padding: 18px;
+    }
+
+    .summary-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .summary-value {
+      font-size: 15px;
+      line-height: 1.9;
+      font-weight: 800;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .points-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .points-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .points-value {
+      color: #8a5a00;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .level-chip {
+      font-size: 12px;
+      color: #705d24;
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(127, 119, 221, 0.16);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--amber), #ffd179);
+      transition: width .35s ease;
+    }
+
+    .focus-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background:
+        radial-gradient(circle at top left, rgba(116,107,235,0.10), transparent 28%),
+        linear-gradient(180deg, var(--card), var(--card-solid));
+    }
+
+    .focus-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .focus-title h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .focus-pill {
+      font-size: 12px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--p100);
+      color: var(--p700);
+      font-weight: 800;
+    }
+
+    .focus-task {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--text);
+      min-height: 32px;
+      font-weight: 700;
+    }
+
+    .focus-next {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .emotion-header,
+    .tasks-header,
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .emotion-section h3,
+    .tasks-header h3,
+    .panel-title h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .panel-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .emotion-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .emo-btn {
+      border: 1.5px solid var(--border);
+      background: var(--card-solid);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .2s ease;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .emo-btn:hover {
+      background: var(--p100);
+      color: var(--p700);
+      border-color: var(--p300);
+    }
+
+    .tasks-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .single-task-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .single-task-card {
+      border: 1px solid rgba(246,166,35,0.18);
+      background:
+        radial-gradient(circle at top left, rgba(255,189,78,0.12), transparent 28%),
+        linear-gradient(180deg, rgba(246,166,35,0.06), rgba(255,255,255,0));
+      border-radius: 22px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    body.dark .single-task-card {
+      background:
+        radial-gradient(circle at top left, rgba(255,187,84,0.10), transparent 28%),
+        linear-gradient(180deg, rgba(255,187,84,0.06), rgba(255,255,255,0));
+    }
+
+    .task-stage {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .task-current-text {
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .task-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .task-actions,
+    .plan-tools,
+    .plan-editor-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mini-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(116,107,235,0.05);
+      border: 1px solid rgba(116,107,235,0.08);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .mini-step.done {
+      opacity: .6;
+      text-decoration: line-through;
+    }
+
+    .mini-badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--green-bg);
+      color: var(--green);
+      font-weight: 800;
+      border: 1px solid var(--green-border);
+      flex-shrink: 0;
+    }
+
+    .ghost-btn,
+    .plan-btn,
+    .chat-toggle-btn {
+      border: 1px solid var(--border);
+      background: var(--card-solid);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .plan-btn.primary {
+      background: linear-gradient(135deg, var(--p700), var(--p500));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 12px 22px rgba(91,80,214,0.22);
+    }
+
+    .plan-editor {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px dashed var(--border);
+      padding-top: 12px;
+    }
+
+    .plan-editor textarea {
+      min-height: 110px;
+      line-height: 1.8;
+    }
+
+    /* Timer */
+    .timer-section {
+      background: linear-gradient(160deg, #1b163d, #4b42ad 62%, #6a5bff);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body.dark .timer-section {
+      background: linear-gradient(160deg, #181632, #403991 62%, #5e52df);
+    }
+
+    .timer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .timer-top h3 {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .timer-live-chip {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .flame-timer-wrap {
+      position: relative;
+      width: 220px;
+      height: 280px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flame-shell {
+      position: relative;
+      width: 170px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center bottom;
+      transition: transform .45s ease;
+    }
+
+    .flame-outer,
+    .flame-middle,
+    .flame-inner {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center bottom;
+      border-radius: 50% 50% 46% 46%;
+      clip-path: polygon(50% 0%, 68% 14%, 82% 34%, 88% 55%, 80% 76%, 64% 92%, 50% 100%, 36% 92%, 20% 76%, 12% 55%, 18% 34%, 32% 14%);
+      animation: flameFloat 1.6s ease-in-out infinite;
+    }
+
+    .flame-outer {
+      width: 160px;
+      height: 220px;
+      background: radial-gradient(circle at 50% 68%, #fff3d7 0%, #ffd27b 24%, #ffab37 52%, #ff7b00 72%, rgba(255,123,0,0.82) 100%);
+      filter: drop-shadow(0 0 28px rgba(255,165,50,0.38));
+      opacity: .92;
+    }
+
+    .flame-middle {
+      width: 118px;
+      height: 168px;
+      background: radial-gradient(circle at 50% 70%, #fff8e9 0%, #ffe3a5 36%, #ffc85c 64%, #ff9d1e 100%);
+      animation-duration: 1.3s;
+    }
+
+    .flame-inner {
+      width: 76px;
+      height: 116px;
+      background: radial-gradient(circle at 50% 70%, #fffef7 0%, #fff4c9 48%, #ffe48c 100%);
+      animation-duration: 1.1s;
+    }
+
+    @keyframes flameFloat {
+      0%, 100% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+      25% { transform: translateX(-50%) scale(1.02, 0.96) rotate(2deg); }
+      50% { transform: translateX(-50%) scale(0.97, 1.05) rotate(-1deg); }
+      75% { transform: translateX(-50%) scale(1.03, 0.98) rotate(1deg); }
+    }
+
+    .timer-center {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      width: 120px;
+      margin-top: 14px;
+    }
+
+    .timer-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .timer-display {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+    }
+
+    .timer-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+      margin-top: 8px;
+      line-height: 1.8;
+      min-height: 44px;
+    }
+
+    .timer-progress-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timer-progress {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      overflow: hidden;
+    }
+
+    .timer-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffd27b, #ff9d1e, #ff7800);
+      transition: width .5s linear;
+    }
+
+    .timer-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timer-stop-btn {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.09);
+      color: white;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Chat */
+    .chat-panel.collapsed .messages,
+    .chat-panel.collapsed .panel-sub {
+      display: none;
+    }
+
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 120px;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-left: 2px;
+      scroll-behavior: smooth;
+    }
+
+    .msg {
+      max-width: 88%;
+      display: flex;
+      gap: 8px;
+      animation: fadeIn .22s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg.bot {
+      align-self: flex-end;
+    }
+
+    .msg.user {
+      align-self: flex-start;
+      flex-direction: row-reverse;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--p100);
+      color: var(--p700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .bubble {
+      padding: 12px 14px;
+      border-radius: 18px;
+      line-height: 1.8;
+      font-size: 14.5px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    .bubble.bot {
+      background: var(--bot-bubble);
+      color: var(--text);
+      border-bottom-left-radius: 6px;
+      border: 1px solid rgba(116,107,235,0.07);
+    }
+
+    .bubble.user {
+      background: var(--user-bubble);
+      color: #fff;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 10px 20px rgba(91,80,214,0.22);
+    }
+
+    .typing {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 0;
+    }
+
+    .typing span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--p500);
+      animation: blink .9s infinite;
+      opacity: .7;
+    }
+
+    .typing span:nth-child(2) { animation-delay: .15s; }
+    .typing span:nth-child(3) { animation-delay: .3s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { transform: scale(.7); opacity: .35; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .empty-chat {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 10px;
+      line-height: 1.8;
+    }
+
+    /* Spark floating */
+    .spark-btn {
+      position: fixed;
+      left: 24px;
+      bottom: 112px;
+      width: 58px;
+      height: 58px;
+      margin: 0;
+      border: none;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), transparent 35%),
+        linear-gradient(145deg, #2b225f, #5b50d6 72%);
+      color: white;
+      cursor: pointer;
+      box-shadow:
+        0 14px 30px rgba(91,80,214,0.28),
+        0 0 0 1px rgba(255,255,255,0.08) inset;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      overflow: hidden;
+      z-index: 80;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spark-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow:
+        0 18px 34px rgba(91,80,214,0.34),
+        0 0 0 1px rgba(255,255,255,0.10) inset;
+    }
+
+    .spark-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,193,90,0.22), transparent 58%);
+      pointer-events: none;
+    }
+
+    .spark-icon-wrap {
+      position: relative;
+      width: 28px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spark-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,194,99,0.22);
+      animation: sparkPulse 1.9s ease-out infinite;
+    }
+
+    @keyframes sparkPulse {
+      0%   { transform: scale(.88); opacity: .75; }
+      70%  { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+
+    .spark-core {
+      width: 22px;
+      height: 32px;
+      background: radial-gradient(circle at 50% 72%, #fff4d4 0%, #ffd37b 38%, #ffa231 70%, #ff7a00 100%);
+      clip-path: polygon(50% 0%, 65% 18%, 80% 42%, 74% 72%, 50% 100%, 28% 74%, 20% 42%, 35% 18%);
+      filter: drop-shadow(0 0 12px rgba(255,175,64,0.72));
+      animation: flameFlicker 1.25s ease-in-out infinite;
+      transform-origin: center bottom;
+      position: relative;
+    }
+
+    .spark-core::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 15px;
+      inset: 7px auto auto 6px;
+      background: radial-gradient(circle at 50% 70%, #fffef4 0%, #ffe8ac 100%);
+      clip-path: polygon(50% 0%, 70% 28%, 62% 72%, 50% 100%, 38% 72%, 30% 28%);
+      opacity: .98;
+    }
+
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) rotate(-2deg); }
+      25% { transform: scale(1.07, 0.95) rotate(2deg); }
+      50% { transform: scale(0.95, 1.08) rotate(-1deg); }
+      75% { transform: scale(1.06, 0.96) rotate(1deg); }
+    }
+
+    .input-area {
+      position: fixed;
+      bottom: 0;
+      width: calc(100% - 36px);
+      max-width: calc(var(--page-max) - 36px);
+      padding: 12px 0 18px;
+      background: linear-gradient(180deg, rgba(246,247,251,0), var(--bg) 24%);
+      z-index: 60;
+    }
+
+    body.dark .input-area {
+      background: linear-gradient(180deg, rgba(13,15,29,0), var(--bg) 24%);
+    }
+
+    .input-shell {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      backdrop-filter: blur(14px);
+    }
+
+    .input-area textarea {
+      flex: 1;
+      border: none;
+      background: transparent;
+      min-height: 44px;
+      max-height: 120px;
+      padding: 10px 12px;
+      box-shadow: none !important;
+    }
+
+    .send-btn {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--p700), var(--p500));
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(91,80,214,0.24);
+      transition: .2s ease;
+    }
+
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      animation: confettiFall 2.8s ease-in forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(740deg); opacity: 0; }
+    }
+
+    @media (max-width: 980px) {
+      :root { --page-max: 100%; }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-column {
+        order: 2;
+      }
+
+      .main-column {
+        order: 1;
+      }
+
+      .messages {
+        max-height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-shell {
+        padding: 12px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flame-timer-wrap {
+        width: 200px;
+        height: 260px;
+      }
+
+      .flame-shell {
+        width: 150px;
+        height: 205px;
+      }
+
+      .flame-outer {
+        width: 145px;
+        height: 205px;
+      }
+
+      .flame-middle {
+        width: 108px;
+        height: 158px;
+      }
+
+      .flame-inner {
+        width: 70px;
+        height: 108px;
+      }
+
+      .spark-btn {
+        left: 14px;
+        bottom: 116px;
+      }
+
+      .input-area {
+        width: calc(100% - 24px);
+      }
+    }
+
+    /* ===== AZM LOGO ===== */
+.azm-logo {
+  width: 110px;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+.azm-logo-text {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 42px;
+  fill: url(#azmGrad);
+  font-weight: 700;
+}
+
+body.dark .azm-logo-text {
+  fill: #ffd166;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes floatLogo {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* خلفية */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.hero-bg text {
+  font-family: 'Reem Kufi';
+  font-size: 260px;
+}
+
+ .task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  .task-item:hover {
+    background: rgba(124,92,255,0.08);
+  }
+
+  .task-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: #6c5cff;
+  }
+
+  .active-task {
+    font-weight: bold;
+    color: #6c5cff;
+  }
+
+  .task-item.done span {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="app" id="app">
+
+      <div class="onboarding" id="screen-onboarding">
+        <div class="theme-inline">
+          <button class="theme-toggle" id="theme-toggle-onboarding" title="تبديل الوضع">🌙</button>
+        </div>
+
+        <div class="ob-top">
+          <div class="onboarding-icon" id="ob-icon">✨</div>
+
+          <div>
+            <h1 id="ob-title">مرحباً في عزم</h1>
+            <p id="ob-sub">أنا مدربك الذكي اللي يساعدك تبدأ</p>
+          </div>
+
+          <div class="step-dots" id="step-dots"></div>
+
+          <div class="field-group">
+            <label id="ob-label">ما اسمك؟</label>
+            <input type="text" id="ob-input" placeholder="اكتب اسمك هنا" autocomplete="off" />
+          </div>
+
+          <button class="btn btn-primary" id="ob-next">التالي ←</button>
+        </div>
+
+        <div class="ob-helper">
+          خطوة خطوة، بنبني تجربة تناسبك وتساعدك تبدأ بسهولة.
+        </div>
+      </div>
+
+      <div id="screen-chat" class="hidden">
+        <div class="hero-bg">
+  <svg viewBox="0 0 600 220">
+    <text x="300" y="145" text-anchor="middle">عزم</text>
+  </svg>
+</div>
+        <div class="topbar-wrap">
+          <div class="chat-header">
+            <div class="header-side">
+              <div class="brand-lockup">
+
+  <svg class="azm-logo" viewBox="0 0 220 84">
+    <defs>
+      <linearGradient id="azmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#7C5CFF"/>
+        <stop offset="100%" stop-color="#F6A623"/>
+      </linearGradient>
+    </defs>
+
+    <path d="M176 10 L181 21 L192 26 L181 31 L176 42 L171 31 L160 26 L171 21 Z" fill="url(#azmGrad)"/>
+    <text x="95" y="58" text-anchor="middle" class="azm-logo-text">عزم</text>
+  </svg>
+
+  <div class="logo-lines">
+    <div class="logo-sub" id="header-name">أهلاً</div>
+  </div>
+
+</div>
+            </div>
+
+            <div class="header-side">
+              <button class="icon-btn" id="theme-toggle-chat" title="تبديل الوضع">🌙</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="main-column">
+            <div class="summary-grid">
+              <div class="card summary-card">
+                <div class="summary-label">هدفك الأسبوعي</div>
+                <div class="summary-value" id="weekly-goal-text">—</div>
+              </div>
+
+              <div class="card summary-card">
+                <div class="summary-label">شعورك</div>
+                <div class="summary-value" id="dream-text">—</div>
+              </div>
+            </div>
+
+            <div class="card points-card">
+              <div class="points-row">
+                <div class="points-value" id="pts-label">⚡ 0 نقطة</div>
+                <div class="level-chip" id="level-label">مبتدئة</div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="pts-progress"></div>
+              </div>
+            </div>
+
+            <div class="card focus-card">
+              <div class="focus-title">
+                <h3>تركيزك الآن</h3>
+                <div class="focus-pill">ابدأ بشيء صغير</div>
+              </div>
+
+              <div class="focus-task" id="focus-task-text">وش المهمة اللي موقفك اليوم؟</div>
+              <div class="focus-next" id="focus-next-text">أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.</div>
+            </div>
+
+            <div class="card emotion-section hidden" id="emotion-section">
+              <div class="emotion-header">
+                <h3>كيف تشعر تجاه هذه المهمة؟</h3>
+                <div class="panel-sub">اختيارك يساعد عزم يخصّص المساندة</div>
+              </div>
+              <div class="emotion-grid" id="emotion-grid"></div>
+            </div>
+
+            <div class="card tasks-section hidden" id="tasks-section">
+              <div class="tasks-header">
+                <h3>خطوة التنفيذ الحالية</h3>
+                <span class="tasks-count" id="tasks-count">0/0</span>
+              </div>
+
+              <div class="single-task-wrap">
+                <div class="single-task-card" id="single-task-card">
+                  <div class="task-stage" id="task-stage-label">الآن</div>
+                  <div class="task-current-text" id="current-task-text">أول خطوة بتظهر هنا</div>
+                  <div class="task-note" id="current-task-note">ابدأ بهذه الخطوة فقط، ولما تخلصها نطلع لك اللي بعدها.</div>
+
+                  <div class="plan-tools hidden" id="plan-tools">
+                    <button class="plan-btn primary" id="edit-plan-btn">تعديل الخطة</button>
+                    <button class="ghost-btn" id="show-all-steps-btn">عرض تفاصيل الخطة</button>
+                  </div>
+
+                  <div class="plan-editor hidden" id="plan-editor">
+                    <textarea id="plan-editor-textarea" placeholder="كل خطوة في سطر مستقل"></textarea>
+                    <div class="plan-editor-actions">
+                      <button class="plan-btn primary" id="save-plan-btn">حفظ التعديل</button>
+                      <button class="ghost-btn" id="cancel-plan-btn">إلغاء</button>
+                    </div>
+                  </div>
+
+                  <div class="task-actions">
+                    <button class="plan-btn primary" id="complete-current-btn">تمت الخطوة</button>
+                    <button class="ghost-btn" id="skip-current-btn">تخطي</button>
+                  </div>
+                </div>
+
+                <div class="task-list hidden" id="all-steps-preview"></div>
+              </div>
+            </div>
+
+            <div class="card timer-section hidden" id="timer-section">
+              <div class="timer-top">
+                <h3>شرارة العزم</h3>
+                <div class="timer-live-chip">مباشر الآن</div>
+              </div>
+
+              <div class="flame-timer-wrap">
+                <div class="flame-shell" id="flame-shell">
+                  <div class="flame-outer"></div>
+                  <div class="flame-middle"></div>
+                  <div class="flame-inner"></div>
+
+                  <div class="timer-center">
+                    <div class="timer-label">ركز على خطوة واحدة</div>
+                    <div class="timer-display" id="timer-display">07:00</div>
+                    <div class="timer-sub" id="timer-subtext">التركيز الآن على أول خطوة</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timer-progress-wrap">
+                <div class="timer-progress">
+                  <div class="timer-progress-fill" id="timer-progress-fill"></div>
+                </div>
+              </div>
+
+              <div class="timer-actions">
+                <button class="timer-stop-btn" id="timer-stop">⏹ إيقاف</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="side-column">
+            <div class="card chat-panel" id="chat-panel">
+              <div class="panel-title">
+                <h3>ركن الانطلاق</h3>
+                <button class="chat-toggle-btn" id="chat-toggle-btn">إغلاق</button>
+              </div>
+
+              <div class="panel-sub">الدعم، التشخيص، والانطلاق</div>
+
+              <div class="messages" id="messages">
+                <div class="empty-chat" id="empty-chat-text">
+                  ابدأ بكتابة المهمة أو الشيء اللي موقفك اليوم.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="spark-btn hidden" id="spark-btn" title="ابدأ شرارة العزم">
+          <div class="spark-icon-wrap">
+            <div class="spark-ring"></div>
+            <div class="spark-core"></div>
+          </div>
+        </button>
+
+        <div class="input-area">
+          <div class="input-shell">
+            <textarea id="chat-input" rows="1" placeholder="أخبر عزم كيف تشعر وما هي مهمتك..."></textarea>
+            <button class="send-btn" id="send-btn">↑</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confetti-container hidden" id="confetti"></div>
+
+  <script>
+    const API = window.location.origin;
+
+    const state = {
+      
+      step: 0,
+      profile: {},
+      messages: [],
+      points: 0,
+      tasks: [],
+      pendingTask: null,
+      timerInterval: null,
+      timerSeconds: 420,
+      loading: false,
+      currentTheme: 'light',
+      chatCollapsed: false,
+      showAllSteps: false
+    };
+
+    function saveState() {
+  localStorage.setItem("azm_state", JSON.stringify(state));
+}
+
+function loadState() {
+  const saved = localStorage.getItem("azm_state");
+  if (saved) {
+    Object.assign(state, JSON.parse(saved));
+  }
+}
+
+    const steps = [
+      { key: 'name', icon: '✨', title: 'مرحباً في عزم', sub: 'أنا مدربك الذكي اللي يساعدك تبدأ', label: 'ما اسمك؟', ph: 'اكتب اسمك هنا' },
+      { key: 'big_goal', icon: '🎯', title: 'هدفك الكبير', sub: 'الشيء اللي يحركك من الداخل', label: 'إيش أكبر هدف تشتغل عليه هالفصل؟', ph: 'مثلاً: أتخرج بتقدير ممتاز' },
+      { key: 'medium_goal', icon: '📅', title: 'هدفك الأسبوعي', sub: 'خطوة واضحة تقربك لهدفك الكبير', label: 'إيش أهم شيء تبغى تنجزه هالأسبوع؟', ph: 'مهمة محددة وواضحة' },
+      { key: 'feelings', icon: '🌟', title: 'شعورك', sub: 'وش الشعور اللي يرافق بدايتك؟', label: 'كيف تشعر غالبًا لما تبدأ مهمة صعبة؟', ph: 'مثلاً: توتر، تشتت، حماس...' }
+    ];
+
+    const emotions = ['قلق', 'خوف من الفشل', 'كسل', 'كمالية', 'تشتت', 'مرهق', 'مو متحمس'];
+
+    const emoReplies = {
+      'قلق': 'واضح إنك مهتم بالمهمة، وخلنا نبسطها سوا.',
+      'خوف من الفشل': 'مو لازم تنجزها كاملة الآن، يكفي تبدأ بداية بسيطة.',
+      'كسل': 'يمكن مو كسل، يمكن المهمة طالعة أكبر من حجمها الحقيقي.',
+      'كمالية': 'ما نحتاج نسخة مثالية، نحتاج بداية فقط.',
+      'تشتت': 'خلنا نمسك أول خطوة فقط ونترك الباقي بعدين.',
+      'مرهق': 'بناخذ أصغر خطوة ممكنة، شيء خفيف عليك.',
+      'مو متحمس': 'مو لازم الحماس يسبق البداية، أحيانًا البداية هي اللي تجيب الحماس.'
+    };
+
+    const taskKw = ['مهمة','مذاكر','مشروع','تقرير','واجب','اذاكر','أذاكر','ابدأ','كتاب','بحث','امتحان','برمجة','كود','عرض','تلخيص','دراسة'];
+
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/\n/g,'<br>');
+    }
+
+    function applyTheme(theme) {
+      state.currentTheme = theme;
+      document.body.classList.toggle('dark', theme === 'dark');
+      const icon = theme === 'dark' ? '☀️' : '🌙';
+      const btn1 = document.getElementById('theme-toggle-onboarding');
+      const btn2 = document.getElementById('theme-toggle-chat');
+      if (btn1) btn1.textContent = icon;
+      if (btn2) btn2.textContent = icon;
+      localStorage.setItem('azm-theme', theme);
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('azm-theme') || 'light';
+      applyTheme(saved);
+
+      ['theme-toggle-onboarding', 'theme-toggle-chat'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          const next = document.body.classList.contains('dark') ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      });
+    }
+
+    function getLevel(pts) {
+      if (pts < 50) return { name: 'مبتدئة', min: 0, max: 50 };
+      if (pts < 120) return { name: 'منطلقة', min: 50, max: 120 };
+      if (pts < 220) return { name: 'مثابرة', min: 120, max: 220 };
+      if (pts < 350) return { name: 'منجزة', min: 220, max: 350 };
+      return { name: 'أسطورية', min: 350, max: 500 };
+    }
+
+    function updatePoints(delta = 0) {
+      state.points += delta;
+      const lv = getLevel(state.points);
+      const pct = Math.max(0, Math.min(100, Math.round(((state.points - lv.min) / (lv.max - lv.min)) * 100)));
+      document.getElementById('pts-label').textContent = `⚡ ${state.points} نقطة`;
+      document.getElementById('pts-progress').style.width = pct + '%';
+      document.getElementById('level-label').textContent = lv.name;
+      saveState();
+    }
+
+    function renderStep() {
+      const s = steps[state.step];
+      document.getElementById('ob-icon').textContent = s.icon;
+      document.getElementById('ob-title').textContent = s.title;
+      document.getElementById('ob-sub').textContent = s.sub;
+      document.getElementById('ob-label').textContent = s.label;
+      document.getElementById('ob-input').placeholder = s.ph;
+      document.getElementById('ob-input').value = state.profile[s.key] || '';
+
+      const dots = document.getElementById('step-dots');
+      dots.innerHTML = steps.map((_, i) => `<div class="step-dot ${i === state.step ? 'active' : ''}"></div>`).join('');
+      document.getElementById('ob-next').textContent = state.step === steps.length - 1 ? 'ابدأ رحلتي ✨' : 'التالي ←';
+
+      setTimeout(() => document.getElementById('ob-input').focus(), 60);
+    }
+
+    function advanceStep() {
+      const val = document.getElementById('ob-input').value.trim();
+      if (!val) return;
+
+      state.profile[steps[state.step].key] = val;
+
+      if (state.step < steps.length - 1) {
+        state.step++;
+        renderStep();
+      } else {
+        startChat();
+      }
+    }
+
+    function startChat() {
+      document.getElementById('screen-onboarding').classList.add('hidden');
+      document.getElementById('screen-chat').classList.remove('hidden');
+
+      document.getElementById('header-name').textContent = state.profile.name || 'أهلاً';
+      document.getElementById('weekly-goal-text').textContent = state.profile.medium_goal || '—';
+      document.getElementById('dream-text').textContent = state.profile.feelings || '—';
+      document.getElementById('focus-task-text').textContent = 'وش المهمة اللي موقفك اليوم؟';
+      document.getElementById('focus-next-text').textContent = 'أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.';
+      updatePoints(0);
+
+      const greeting = `أهلاً ${state.profile.name}! 🌟
+
+أنا عزم، رفيقك في رحلة الإنجاز.
+
+هدفك الأسبوعي: "${state.profile.medium_goal}"
+
+وش المهمة اللي موقفك اليوم؟`;
+
+      if (!state.messages.length) {
+  addMessage('bot', greeting);
+}
+setupInput();
+saveState();
+    }
+
+    function addMessage(role, text) {
+      state.messages.push({ role, content: text });
+      renderMessage(role, text);
+      scrollBottom();
+    }
+
+    function renderMessage(role, text) {
+      const empty = document.getElementById('empty-chat-text');
+      if (empty) empty.remove();
+
+      const wrap = document.createElement('div');
+      wrap.className = `msg ${role}`;
+
+      if (role === 'bot') {
+        wrap.innerHTML = `<div class="avatar">✨</div><div class="bubble bot">${escHtml(text)}</div>`;
+      } else {
+        wrap.innerHTML = `<div class="bubble user">${escHtml(text)}</div>`;
+      }
+
+      document.getElementById('messages').appendChild(wrap);
+    }
+
+    function showTyping() {
+      const el = document.createElement('div');
+      el.className = 'msg bot';
+      el.id = 'typing-indicator';
+      el.innerHTML = `<div class="avatar">✨</div><div class="bubble bot"><div class="typing"><span></span><span></span><span></span></div></div>`;
+      document.getElementById('messages').appendChild(el);
+      scrollBottom();
+    }
+
+    function hideTyping() {
+      const el = document.getElementById('typing-indicator');
+      if (el) el.remove();
+    }
+
+    function scrollBottom() {
+      const m = document.getElementById('messages');
+      if (m) m.scrollTop = m.scrollHeight;
+    }
+
+    let inputBound = false;
+
+    function setupInput() {
+      if (inputBound) return;
+      inputBound = true;
+
+      const input = document.getElementById('chat-input');
+      const btn = document.getElementById('send-btn');
+
+      input.addEventListener('input', () => {
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+      });
+
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          send();
+        }
+      });
+
+      btn.addEventListener('click', send);
+    }
+
+    async function send() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text || state.loading) return;
+
+      input.value = '';
+      input.style.height = 'auto';
+
+      addMessage('user', text);
+      state.loading = true;
+
+      const hasTask = taskKw.some(kw => text.includes(kw));
+      if (hasTask) {
+        state.pendingTask = text;
+        document.getElementById('focus-task-text').textContent = text;
+      }
+
+      showTyping();
+
+      try {
+        const res = await fetch(`${API}/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: state.messages, profile: state.profile })
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        const data = await res.json();
+        hideTyping();
+        addMessage('bot', data.reply || 'وصلني كلامك، بس ما قدرت أطلع رد مناسب الآن.');
+
+        if (hasTask && !state.tasks.length) showEmotionPicker();
+      } catch (e) {
+        hideTyping();
+        addMessage('bot', 'ما قدرت أتصل بالسيرفر. تأكد إن FastAPI شغال وافتح الصفحة من نفس الرابط.');
+      }
+
+      state.loading = false;
+    }
+
+    function showEmotionPicker() {
+      const section = document.getElementById('emotion-section');
+      const grid = document.getElementById('emotion-grid');
+
+      grid.innerHTML = emotions.map(e => `<button class="emo-btn" data-emo="${e}">${e}</button>`).join('');
+      grid.querySelectorAll('.emo-btn').forEach(btn => {
+        btn.addEventListener('click', () => selectEmotion(btn.dataset.emo));
+      });
+
+      section.classList.remove('hidden');
+    }
+
+    async function selectEmotion(emo) {
+      document.getElementById('emotion-section').classList.add('hidden');
+      addMessage('user', `شعوري: ${emo}`);
+      addMessage('bot', emoReplies[emo] || 'خلنا نبدأ بخطوة صغيرة.');
+      updatePoints(10);
+      await loadSteps(state.pendingTask);
+    }
+
+    async function loadSteps(taskText) {
+      if (!taskText) return;
+
+      showTyping();
+
+      try {
+        const res = await fetch(`${API}/steps`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ task: taskText, profile: state.profile })
+        });
+
+        if (!res.ok) throw new Error('steps failed');
+
+        const data = await res.json();
+        hideTyping();
+
+        state.tasks = (data.steps || [])
+          .filter(s => (s || '').trim())
+          .map(s => ({ text: s.trim(), done: false }));
+
+        if (state.tasks.length) {
+          addMessage('bot', 'جهزت لك الخطة ✨ ركز فقط على أول خطوة، والباقي موجود إذا احتجته.');
+          document.getElementById('plan-tools').classList.remove('hidden');
+          renderTasks();
+
+          if (!state.chatCollapsed && window.innerWidth < 981) {
+            toggleChatPanel();
+          }
+        } else {
+          addMessage('bot', 'ما قدرت أطلع خطوات واضحة، جرب تكتب المهمة بشكل أوضح شوي.');
+        }
+      } catch (e) {
+        hideTyping();
+        addMessage('bot', 'ما قدرت أولد الخطوات الآن. تأكد إن السيرفر شغال ثم جرّب مرة ثانية.');
+      }
+    }
+
+    function getCurrentTaskIndex() {
+      return state.tasks.findIndex(t => !t.done);
+    }
+
+    function getCurrentTask() {
+      return state.tasks.find(t => !t.done) || null;
+    }
+
+    function renderTasks() {
+      const section = document.getElementById('tasks-section');
+      const currentTaskText = document.getElementById('current-task-text');
+      const currentTaskNote = document.getElementById('current-task-note');
+      const taskStageLabel = document.getElementById('task-stage-label');
+      const preview = document.getElementById('all-steps-preview');
+
+      section.classList.remove('hidden');
+
+      const done = state.tasks.filter(t => t.done).length;
+      const total = state.tasks.length;
+      document.getElementById('tasks-count').textContent = `${done}/${total}`;
+
+      const currentIndex = getCurrentTaskIndex();
+      const currentTask = getCurrentTask();
+
+      if (!currentTask) {
+        currentTaskText.textContent = 'أنجزت كل الخطوات 🎉';
+        currentTaskNote.textContent = 'ممتاز جدًا، خلصت الخطة كاملة.';
+        taskStageLabel.textContent = 'اكتملت الخطة';
+        document.getElementById('complete-current-btn').classList.add('hidden');
+        document.getElementById('skip-current-btn').classList.add('hidden');
+        document.getElementById('focus-next-text').textContent = 'أنجزت كل الخطوات. ممتاز جدًا.';
+        document.getElementById('spark-btn').classList.add('hidden');
+      } else {
+        currentTaskText.textContent = currentTask.text;
+        currentTaskNote.textContent = 'ابدأ بهذه الخطوة فقط، ولما تخلصها بنطلع لك اللي بعدها.';
+        taskStageLabel.textContent = `الخطوة ${currentIndex + 1} من ${total}`;
+        document.getElementById('complete-current-btn').classList.remove('hidden');
+        document.getElementById('skip-current-btn').classList.remove('hidden');
+        document.getElementById('focus-next-text').textContent = `الخطوة الحالية: ${currentTask.text}`;
+        if (state.tasks.length && getCurrentTask()) {
+  document.getElementById('spark-btn').classList.remove('hidden');
+} else {
+  document.getElementById('spark-btn').classList.add('hidden');
+}
+      }
+
+      preview.innerHTML = state.tasks.map((t, i) => `
+  <label class="mini-step task-item ${t.done ? 'done' : ''}">
+
+    <input type="checkbox"
+      ${t.done ? 'checked' : ''}
+      onchange="toggleTask(${i})"
+    />
+
+    <span class="${i === getCurrentTaskIndex() ? 'active-task' : ''}">
+      ${escHtml(t.text)}
+    </span>
+
+    ${t.done ? '<span class="mini-badge">تمت</span>' : `<span class="mini-badge">#${i + 1}</span>`}
+
+  </label>
+`).join('');
+
+      preview.classList.toggle('hidden', !state.showAllSteps);
+    }
+
+    function completeCurrentTask() {
+      const idx = getCurrentTaskIndex();
+      if (idx === -1) return;
+
+      state.tasks[idx].done = true;
+      updatePoints(15);
+
+      const next = state.tasks.find(t => !t.done);
+      if (next) {
+        addMessage('bot', `أحسنت! +15 نقطة ✨
+
+الخطوة الجاية: ${next.text}`);
+      } else {
+        addMessage('bot', `أبدعت! خلصت كل الخطوات 🎉
+
+اقتربت من هدفك — "${state.profile.big_goal}" صار أقرب اليوم.`);
+        launchConfetti();
+      }
+
+      renderTasks();
+      saveState();
+    }
+
+    function handleDone() {
+  completeCurrentTask();
+}
+
+    function skipCurrentTask() {
+      const idx = getCurrentTaskIndex();
+      if (idx === -1) return;
+
+      const [task] = state.tasks.splice(idx, 1);
+      if (task) state.tasks.push(task);
+
+      addMessage('bot', 'تمام، أخرت هذه الخطوة وخليت اللي بعدها الحالية.');
+      renderTasks();
+    }
+
+    function toggleTask(index) {
+
+  const currentIndex = getCurrentTaskIndex();
+
+  // إذا ضغط على المهمة الحالية
+  if (index === currentIndex) {
+    completeCurrentTask();
+    return;
+  }
+
+  // إذا ضغط على مهمة قديمة → يرجع لها
+  if (index < currentIndex) {
+    state.tasks[index].done = false;
+
+    // يرجع كل اللي بعدها
+    for (let i = index + 1; i < state.tasks.length; i++) {
+      state.tasks[i].done = false;
+    }
+  }
+
+  renderTasks();
+  saveState();
+}
+
+    function openPlanEditor() {
+      document.getElementById('plan-editor').classList.remove('hidden');
+      document.getElementById('plan-editor-textarea').value = state.tasks.map(t => t.text).join('\n');
+    }
+
+    function closePlanEditor() {
+      document.getElementById('plan-editor').classList.add('hidden');
+    }
+
+    function savePlanEditor() {
+      const raw = document.getElementById('plan-editor-textarea').value;
+      const lines = raw.split('\n').map(s => s.trim()).filter(Boolean);
+    
+      if (!lines.length) return;
+
+      const doneTexts = state.tasks.filter(t => t.done).map(t => t.text);
+
+      state.tasks = lines.map(text => ({
+        text,
+        done: doneTexts.includes(text)
+      }));
+
+      addMessage('bot', 'تم تعديل الخطة ✨');
+      closePlanEditor();
+      renderTasks();
+      saveState();
+    }
+
+    function toggleAllStepsPreview() {
+
+      state.showAllSteps = !state.showAllSteps;
+      document.getElementById('show-all-steps-btn').textContent = state.showAllSteps ? 'إخفاء تفاصيل الخطة' : 'عرض تفاصيل الخطة';
+      renderTasks();
+    }
+
+    function startTimer() {
+      const currentTask = getCurrentTask();
+      
+      addMessage('bot', `بدأت شرارة العزم ⚡
+
+ركز 7 دقائق فقط على:
+${currentTask ? currentTask.text : 'الخطوة الحالية'}
+
+ابدأ الآن وخلك على مهمة واحدة فقط.`);
+
+      updatePoints(5);
+
+      const timerSection = document.getElementById('timer-section');
+      const sparkBtn = document.getElementById('spark-btn');
+
+      sparkBtn.classList.add('hidden');
+      timerSection.classList.remove('hidden');
+
+      document.getElementById('timer-subtext').textContent = currentTask
+        ? `التركيز الآن على: ${currentTask.text}`
+        : 'ركز على خطوة واحدة فقط';
+
+      if (state.timerInterval) clearInterval(state.timerInterval);
+
+      state.timerTotal = 420;
+      state.timerSeconds = 420;
+      updateTimerDisplay();
+
+      state.timerInterval = setInterval(() => {
+        state.timerSeconds--;
+        updateTimerDisplay();
+
+        if (state.timerSeconds <= 0) {
+          clearInterval(state.timerInterval);
+          state.timerInterval = null;
+          timerDone();
+        }
+      }, 1000);
+      saveState();
+    }
+
+    function startShortTimer(seconds) {
+  const timerSection = document.getElementById('timer-section');
+  const sparkBtn = document.getElementById('spark-btn');
+
+  sparkBtn.classList.add('hidden');
+  timerSection.classList.remove('hidden');
+
+  if (state.timerInterval) clearInterval(state.timerInterval);
+
+  state.timerTotal = seconds;
+  state.timerSeconds = seconds;
+  updateTimerDisplay();
+
+  state.timerInterval = setInterval(() => {
+    state.timerSeconds--;
+    updateTimerDisplay();
+
+    if (state.timerSeconds <= 0) {
+      clearInterval(state.timerInterval);
+      state.timerInterval = null;
+      timerDone();
+    }
+  }, 1000);
+}
+
+function continueFocus() {
+  addMessage('bot', 'تمام 👌 نرجع نكمل 3 دقائق تركيز إضافية 🔥');
+  startShortTimer(180);
+}
+
+    function updateTimerDisplay() {
+      const total = state.timerTotal || 420;
+      const elapsed = total - state.timerSeconds;
+      const pct = Math.max(0, Math.min(1, elapsed / total));
+
+      const m = String(Math.floor(state.timerSeconds / 60)).padStart(2, '0');
+      const s = String(state.timerSeconds % 60).padStart(2, '0');
+
+      document.getElementById('timer-display').textContent = `${m}:${s}`;
+      document.getElementById('timer-progress-fill').style.width = `${pct * 100}%`;
+
+      const flameShell = document.getElementById('flame-shell');
+      const scale = 1 + (pct * 0.38);
+      flameShell.style.transform = `scale(${scale})`;
+    }
+
+    function stopTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+      }
+
+      document.getElementById('timer-section').classList.add('hidden');
+      if (getCurrentTask()) {
+        document.getElementById('spark-btn').classList.remove('hidden');
+      }
+    }
+
+   function timerDone() {
+  document.getElementById('timer-section').classList.add('hidden');
+
+  if (getCurrentTask()) {
+    document.getElementById('spark-btn').classList.remove('hidden');
+  }
+
+  updatePoints(20);
+
+  addMessage('bot', `خلصت 7 دقائق 🔥🔥
+
+هل خلصت الخطوة؟`);
+
+  const quick = document.createElement('div');
+quick.className = 'msg bot';
+
+quick.innerHTML = `
+  <div class="avatar">✨</div>
+  <div class="bubble bot">
+    <button onclick="handleDone()" class="plan-btn primary">✅ تمت</button>
+    <button onclick="continueFocus()" class="ghost-btn">⏳ أكمّل</button>
+  </div>
+`;
+
+  document.getElementById('messages').appendChild(quick);
+
+  launchConfetti();
+}
+
+    function toggleChatPanel() {
+      state.chatCollapsed = !state.chatCollapsed;
+      const panel = document.getElementById('chat-panel');
+      const btn = document.getElementById('chat-toggle-btn');
+
+      panel.classList.toggle('collapsed', state.chatCollapsed);
+      btn.textContent = state.chatCollapsed ? 'فتح' : 'إغلاق';
+    }
+
+    function launchConfetti() {
+      const container = document.getElementById('confetti');
+      container.classList.remove('hidden');
+      container.innerHTML = '';
+
+      const colors = ['#5b50d6', '#8e87ff', '#f6a623', '#1fa97a', '#ff6fa8', '#5ed7ff'];
+
+      for (let i = 0; i < 65; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti-piece';
+        el.style.left = `${Math.random() * 100}%`;
+        el.style.width = `${6 + Math.random() * 8}px`;
+        el.style.height = `${6 + Math.random() * 8}px`;
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        el.style.animationDelay = `${Math.random() * 1.2}s`;
+        el.style.animationDuration = `${2 + Math.random() * 1.6}s`;
+        container.appendChild(el);
+      }
+
+      setTimeout(() => {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+      }, 4200);
+    }
+
+    function restoreApp() {
+  const completedProfile =
+    state.profile &&
+    state.profile.name &&
+    state.profile.big_goal &&
+    state.profile.medium_goal &&
+    state.profile.feelings;
+
+  if (completedProfile) {
+    document.getElementById('screen-onboarding').classList.add('hidden');
+    document.getElementById('screen-chat').classList.remove('hidden');
+
+    document.getElementById('header-name').textContent = state.profile.name || 'أهلاً';
+    document.getElementById('weekly-goal-text').textContent = state.profile.medium_goal || '—';
+    document.getElementById('dream-text').textContent = state.profile.feelings || '—';
+
+    if (state.pendingTask) {
+      document.getElementById('focus-task-text').textContent = state.pendingTask;
+    } else {
+      document.getElementById('focus-task-text').textContent = 'وش المهمة اللي موقفك اليوم؟';
+    }
+
+    const currentTask = getCurrentTask();
+    document.getElementById('focus-next-text').textContent = currentTask
+      ? `الخطوة الحالية: ${currentTask.text}`
+      : 'أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.';
+
+    updatePoints(0);
+    setupInput();
+
+    // إعادة رسم الرسائل القديمة
+    const messagesBox = document.getElementById('messages');
+    messagesBox.innerHTML = '';
+
+    if (state.messages && state.messages.length) {
+      state.messages.forEach(msg => {
+        renderMessage(msg.role, msg.content);
+      });
+    } else {
+      messagesBox.innerHTML = `
+        <div class="empty-chat" id="empty-chat-text">
+          ابدأ بكتابة المهمة أو الشيء اللي موقفك اليوم.
+        </div>
+      `;
+    }
+
+    // إعادة رسم الخطة إذا موجودة
+    if (state.tasks && state.tasks.length) {
+      document.getElementById('tasks-section').classList.remove('hidden');
+      document.getElementById('plan-tools').classList.remove('hidden');
+      renderTasks();
+    }
+
+    scrollBottom();
+  } else {
+    renderStep();
+  }
+}
+
+    document.getElementById('ob-next').addEventListener('click', advanceStep);
+    document.getElementById('ob-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') advanceStep();
+    });
+
+    document.getElementById('spark-btn').addEventListener('click', startTimer);
+    document.getElementById('timer-stop').addEventListener('click', stopTimer);
+    document.getElementById('chat-toggle-btn').addEventListener('click', toggleChatPanel);
+
+    document.getElementById('complete-current-btn').addEventListener('click', completeCurrentTask);
+    document.getElementById('skip-current-btn').addEventListener('click', skipCurrentTask);
+
+    document.getElementById('edit-plan-btn').addEventListener('click', openPlanEditor);
+    document.getElementById('cancel-plan-btn').addEventListener('click', closePlanEditor);
+    document.getElementById('save-plan-btn').addEventListener('click', savePlanEditor);
+    document.getElementById('show-all-steps-btn').addEventListener('click', toggleAllStepsPreview);
+
+    initTheme();
+    loadState();
+    restoreApp();
+  </script>
+</body>
+</html>
