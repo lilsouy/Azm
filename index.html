@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>عزم ✨</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --p700: #4538b8;
@@ -121,7 +121,6 @@
       backdrop-filter: blur(18px);
     }
 
-    /* Onboarding */
     .onboarding {
       min-height: calc(100vh - 36px);
       display: flex;
@@ -299,7 +298,6 @@
       line-height: 1.8;
     }
 
-    /* Main */
     #screen-chat {
       min-height: calc(100vh - 36px);
       display: flex;
@@ -334,32 +332,10 @@
       gap: 12px;
     }
 
-    .logo-badge {
-      width: 50px;
-      height: 50px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.36), transparent 28%),
-        linear-gradient(135deg, var(--p700), var(--p400));
-      color: white;
-      font-size: 20px;
-      box-shadow: 0 12px 24px rgba(91,80,214,0.24);
-      flex-shrink: 0;
-    }
-
     .logo-lines {
       display: flex;
       flex-direction: column;
       gap: 2px;
-    }
-
-    .logo-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text);
     }
 
     .logo-sub {
@@ -686,7 +662,6 @@
       line-height: 1.8;
     }
 
-    /* Timer */
     .timer-section {
       background: linear-gradient(160deg, #1b163d, #4b42ad 62%, #6a5bff);
       color: white;
@@ -854,7 +829,6 @@
       cursor: pointer;
     }
 
-    /* Chat */
     .chat-panel.collapsed .messages,
     .chat-panel.collapsed .panel-sub {
       display: none;
@@ -961,7 +935,6 @@
       line-height: 1.8;
     }
 
-    /* Spark floating */
     .spark-btn {
       position: fixed;
       left: 24px;
@@ -1187,80 +1160,77 @@
       }
     }
 
-    /* ===== AZM LOGO ===== */
-.azm-logo {
-  width: 110px;
-  animation: floatLogo 3s ease-in-out infinite;
-}
+    .azm-logo {
+      width: 110px;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
 
-.azm-logo-text {
-  font-family: 'Reem Kufi', sans-serif;
-  font-size: 42px;
-  fill: url(#azmGrad);
-  font-weight: 700;
-}
+    .azm-logo-text {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 42px;
+      fill: url(#azmGrad);
+      font-weight: 700;
+    }
 
-body.dark .azm-logo-text {
-  fill: #ffd166;
-}
+    body.dark .azm-logo-text {
+      fill: #ffd166;
+    }
 
-.brand-lockup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-@keyframes floatLogo {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
+    @keyframes floatLogo {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
 
-/* خلفية */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.04;
-  pointer-events: none;
-}
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.04;
+      pointer-events: none;
+    }
 
-.hero-bg text {
-  font-family: 'Reem Kufi';
-  font-size: 260px;
-}
+    .hero-bg text {
+      font-family: 'Reem Kufi';
+      font-size: 260px;
+    }
 
- .task-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: .2s;
-  }
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .2s;
+    }
 
-  .task-item:hover {
-    background: rgba(124,92,255,0.08);
-  }
+    .task-item:hover {
+      background: rgba(124,92,255,0.08);
+    }
 
-  .task-item input {
-    width: 18px;
-    height: 18px;
-    accent-color: #6c5cff;
-  }
+    .task-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #6c5cff;
+    }
 
-  .active-task {
-    font-weight: bold;
-    color: #6c5cff;
-  }
+    .active-task {
+      font-weight: bold;
+      color: #6c5cff;
+    }
 
-  .task-item.done span {
-    text-decoration: line-through;
-    opacity: 0.6;
-  }
-
+    .task-item.done span {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
@@ -1297,32 +1267,30 @@ body.dark .azm-logo-text {
 
       <div id="screen-chat" class="hidden">
         <div class="hero-bg">
-  <svg viewBox="0 0 600 220">
-    <text x="300" y="145" text-anchor="middle">عزم</text>
-  </svg>
-</div>
+          <svg viewBox="0 0 600 220">
+            <text x="300" y="145" text-anchor="middle">عزم</text>
+          </svg>
+        </div>
+
         <div class="topbar-wrap">
           <div class="chat-header">
             <div class="header-side">
               <div class="brand-lockup">
+                <svg class="azm-logo" viewBox="0 0 220 84">
+                  <defs>
+                    <linearGradient id="azmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#7C5CFF"/>
+                      <stop offset="100%" stop-color="#F6A623"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M176 10 L181 21 L192 26 L181 31 L176 42 L171 31 L160 26 L171 21 Z" fill="url(#azmGrad)"/>
+                  <text x="95" y="58" text-anchor="middle" class="azm-logo-text">عزم</text>
+                </svg>
 
-  <svg class="azm-logo" viewBox="0 0 220 84">
-    <defs>
-      <linearGradient id="azmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#7C5CFF"/>
-        <stop offset="100%" stop-color="#F6A623"/>
-      </linearGradient>
-    </defs>
-
-    <path d="M176 10 L181 21 L192 26 L181 31 L176 42 L171 31 L160 26 L171 21 Z" fill="url(#azmGrad)"/>
-    <text x="95" y="58" text-anchor="middle" class="azm-logo-text">عزم</text>
-  </svg>
-
-  <div class="logo-lines">
-    <div class="logo-sub" id="header-name">أهلاً</div>
-  </div>
-
-</div>
+                <div class="logo-lines">
+                  <div class="logo-sub" id="header-name">أهلاً</div>
+                </div>
+              </div>
             </div>
 
             <div class="header-side">
@@ -1363,6 +1331,13 @@ body.dark .azm-logo-text {
 
               <div class="focus-task" id="focus-task-text">وش المهمة اللي موقفتك اليوم؟</div>
               <div class="focus-next" id="focus-next-text">أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.</div>
+            </div>
+
+            <div class="card emotion-section hidden" id="emotion-section">
+              <div class="emotion-header">
+                <h3>وش شعورك تجاه المهمة؟</h3>
+              </div>
+              <div class="emotion-grid" id="emotion-grid"></div>
             </div>
 
             <div class="card tasks-section hidden" id="tasks-section">
@@ -1473,7 +1448,6 @@ body.dark .azm-logo-text {
     const API = window.location.origin;
 
     const state = {
-      
       step: 0,
       profile: {},
       messages: [],
@@ -1482,6 +1456,7 @@ body.dark .azm-logo-text {
       pendingTask: null,
       timerInterval: null,
       timerSeconds: 420,
+      timerTotal: 420,
       loading: false,
       currentTheme: 'light',
       chatCollapsed: false,
@@ -1489,15 +1464,29 @@ body.dark .azm-logo-text {
     };
 
     function saveState() {
-  localStorage.setItem("azm_state", JSON.stringify(state));
-}
+      const safeState = {
+        step: state.step,
+        profile: state.profile,
+        messages: state.messages,
+        points: state.points,
+        tasks: state.tasks,
+        pendingTask: state.pendingTask,
+        timerSeconds: state.timerSeconds,
+        timerTotal: state.timerTotal,
+        currentTheme: state.currentTheme,
+        chatCollapsed: state.chatCollapsed,
+        showAllSteps: state.showAllSteps
+      };
+      localStorage.setItem("azm_state", JSON.stringify(safeState));
+    }
 
-function loadState() {
-  const saved = localStorage.getItem("azm_state");
-  if (saved) {
-    Object.assign(state, JSON.parse(saved));
-  }
-}
+    function loadState() {
+      const saved = localStorage.getItem("azm_state");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        Object.assign(state, parsed);
+      }
+    }
 
     const steps = [
       { key: 'name', icon: '✨', title: 'مرحباً في عزم', sub: 'أنا مدربك الذكي اللي يساعدك تبدأ', label: 'ما اسمك؟', ph: 'اكتب اسمك هنا' },
@@ -1620,16 +1609,18 @@ function loadState() {
 وش المهمة اللي موقفك اليوم؟`;
 
       if (!state.messages.length) {
-  addMessage('bot', greeting);
-}
-setupInput();
-saveState();
+        addMessage('bot', greeting);
+      }
+
+      setupInput();
+      saveState();
     }
 
     function addMessage(role, text) {
       state.messages.push({ role, content: text });
       renderMessage(role, text);
       scrollBottom();
+      saveState();
     }
 
     function renderMessage(role, text) {
@@ -1691,50 +1682,11 @@ saveState();
       btn.addEventListener('click', send);
     }
 
-    async function send() {
-      const input = document.getElementById('chat-input');
-      const text = input.value.trim();
-      if (!text || state.loading) return;
-
-      input.value = '';
-      input.style.height = 'auto';
-
-      addMessage('user', text);
-      state.loading = true;
-
-      const hasTask = taskKw.some(kw => text.includes(kw));
-      if (hasTask) {
-        state.pendingTask = text;
-        document.getElementById('focus-task-text').textContent = text;
-      }
-
-      showTyping();
-
-      try {
-        const res = await fetch(`${API}/chat`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: state.messages, profile: state.profile })
-        });
-
-        if (!res.ok) throw new Error('Request failed');
-
-        const data = await res.json();
-        hideTyping();
-        addMessage('bot', data.reply || 'وصلني كلامك، بس ما قدرت أطلع رد مناسب الآن.');
-
-        if (hasTask && !state.tasks.length) showEmotionPicker();
-      } catch (e) {
-        hideTyping();
-        addMessage('bot', 'ما قدرت أتصل بالسيرفر. تأكد إن FastAPI شغال وافتح الصفحة من نفس الرابط.');
-      }
-
-      state.loading = false;
-    }
-
     function showEmotionPicker() {
       const section = document.getElementById('emotion-section');
       const grid = document.getElementById('emotion-grid');
+
+      if (!section || !grid) return;
 
       grid.innerHTML = emotions.map(e => `<button class="emo-btn" data-emo="${e}">${e}</button>`).join('');
       grid.querySelectorAll('.emo-btn').forEach(btn => {
@@ -1744,51 +1696,119 @@ saveState();
       section.classList.remove('hidden');
     }
 
-    async function selectEmotion(emo) {
-      document.getElementById('emotion-section').classList.add('hidden');
-      addMessage('user', `شعوري: ${emo}`);
-      addMessage('bot', emoReplies[emo] || 'خلنا نبدأ بخطوة صغيرة.');
-      updatePoints(10);
-      await loadSteps(state.pendingTask);
+    function selectEmotion(emo) {
+  const section = document.getElementById('emotion-section');
+  if (section) section.classList.add('hidden');
+
+  state.profile.feelings = emo;
+  document.getElementById('dream-text').textContent = emo;
+
+  addMessage('user', `شعوري: ${emo}`);
+  addMessage('bot', emoReplies[emo] || 'خلنا نبدأ بخطوة صغيرة.');
+
+  updatePoints(10);
+  saveState();
+}
+
+    async function send() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text || state.loading) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+
+  addMessage('user', text);
+  state.loading = true;
+
+  const hasTask = taskKw.some(kw => text.includes(kw));
+
+  if (hasTask) {
+    // اعتبرها مهمة جديدة وامسح أثر المهمة السابقة
+    state.pendingTask = text;
+    state.tasks = [];
+    state.showAllSteps = false;
+
+    // وقف أي تايمر شغال
+    if (state.timerInterval) {
+      clearInterval(state.timerInterval);
+      state.timerInterval = null;
     }
 
-    async function loadSteps(taskText) {
-      if (!taskText) return;
+    // إعادة ضبط الواجهات
+    document.getElementById('focus-task-text').textContent = text;
+    document.getElementById('focus-next-text').textContent = 'خلّنا نجهز لك أول خطوة للمهمة الجديدة.';
+    document.getElementById('timer-subtext').textContent = 'التركيز الآن على أول خطوة';
 
-      showTyping();
+    document.getElementById('tasks-section').classList.add('hidden');
+    document.getElementById('timer-section').classList.add('hidden');
+    document.getElementById('spark-btn').classList.add('hidden');
+    document.getElementById('plan-tools').classList.add('hidden');
+    document.getElementById('all-steps-preview').classList.add('hidden');
 
-      try {
-        const res = await fetch(`${API}/steps`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ task: taskText, profile: state.profile })
-        });
+    document.getElementById('current-task-text').textContent = 'أول خطوة بتظهر هنا';
+    document.getElementById('current-task-note').textContent = 'ابدأ بهذه الخطوة فقط، ولما تخلصها نطلع لك اللي بعدها.';
+    document.getElementById('task-stage-label').textContent = 'الآن';
+    document.getElementById('tasks-count').textContent = '0/0';
+  }
 
-        if (!res.ok) throw new Error('steps failed');
+  showTyping();
 
-        const data = await res.json();
-        hideTyping();
+  try {
+    const res = await fetch(`${API}/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: state.messages,
+        profile: state.profile
+      })
+    });
 
-        state.tasks = (data.steps || [])
-          .filter(s => (s || '').trim())
-          .map(s => ({ text: s.trim(), done: false }));
+    if (!res.ok) throw new Error('Request failed');
 
-        if (state.tasks.length) {
-          addMessage('bot', 'جهزت لك الخطة ✨ ركز فقط على أول خطوة، والباقي موجود إذا احتجته.');
-          document.getElementById('plan-tools').classList.remove('hidden');
-          renderTasks();
+    const data = await res.json();
 
-          if (!state.chatCollapsed && window.innerWidth < 981) {
-            toggleChatPanel();
-          }
-        } else {
-          addMessage('bot', 'ما قدرت أطلع خطوات واضحة، جرب تكتب المهمة بشكل أوضح شوي.');
-        }
-      } catch (e) {
-        hideTyping();
-        addMessage('bot', 'ما قدرت أولد الخطوات الآن. تأكد إن السيرفر شغال ثم جرّب مرة ثانية.');
+    hideTyping();
+    addMessage('bot', data.reply || 'وصلني كلامك، بس ما قدرت أطلع رد مناسب الآن.');
+
+    if (data.follow_up_question) {
+      document.getElementById('focus-next-text').textContent = data.follow_up_question;
+    }
+
+    if (data.spark_task && data.spark_task.task) {
+      document.getElementById('focus-next-text').textContent = `شرارة العزم: ${data.spark_task.task}`;
+      document.getElementById('timer-subtext').textContent = data.spark_task.task;
+    }
+
+    if (Array.isArray(data.micro_tasks) && data.micro_tasks.length) {
+      state.tasks = data.micro_tasks
+        .filter(t => (t || '').trim())
+        .map(t => ({ text: t.trim(), done: false }));
+
+      document.getElementById('tasks-section').classList.remove('hidden');
+      document.getElementById('plan-tools').classList.remove('hidden');
+
+      renderTasks();
+
+      // تأكد أن زر الشرارة يظهر مع المهمة الجديدة
+      if (getCurrentTask()) {
+        document.getElementById('spark-btn').classList.remove('hidden');
       }
     }
+
+    // خل اختيار الشعور يطلع كل مرة فيه مهمة جديدة
+    if (hasTask) {
+      showEmotionPicker();
+    }
+
+    saveState();
+  } catch (e) {
+    hideTyping();
+    addMessage('bot', 'ما قدرت أتصل بالسيرفر. تأكد إن FastAPI شغال وافتح الصفحة من نفس الرابط.');
+  }
+
+  state.loading = false;
+}
 
     function getCurrentTaskIndex() {
       return state.tasks.findIndex(t => !t.done);
@@ -1829,31 +1849,30 @@ saveState();
         document.getElementById('complete-current-btn').classList.remove('hidden');
         document.getElementById('skip-current-btn').classList.remove('hidden');
         document.getElementById('focus-next-text').textContent = `الخطوة الحالية: ${currentTask.text}`;
+
         if (state.tasks.length && getCurrentTask()) {
-  document.getElementById('spark-btn').classList.remove('hidden');
-} else {
-  document.getElementById('spark-btn').classList.add('hidden');
-}
+          document.getElementById('spark-btn').classList.remove('hidden');
+        } else {
+          document.getElementById('spark-btn').classList.add('hidden');
+        }
       }
 
       preview.innerHTML = state.tasks.map((t, i) => `
-  <label class="mini-step task-item ${t.done ? 'done' : ''}">
-
-    <input type="checkbox"
-      ${t.done ? 'checked' : ''}
-      onchange="toggleTask(${i})"
-    />
-
-    <span class="${i === getCurrentTaskIndex() ? 'active-task' : ''}">
-      ${escHtml(t.text)}
-    </span>
-
-    ${t.done ? '<span class="mini-badge">تمت</span>' : `<span class="mini-badge">#${i + 1}</span>`}
-
-  </label>
-`).join('');
+        <label class="mini-step task-item ${t.done ? 'done' : ''}">
+          <input
+            type="checkbox"
+            ${t.done ? 'checked' : ''}
+            onchange="toggleTask(${i})"
+          />
+          <span class="${i === getCurrentTaskIndex() ? 'active-task' : ''}">
+            ${escHtml(t.text)}
+          </span>
+          ${t.done ? '<span class="mini-badge">تمت</span>' : `<span class="mini-badge">#${i + 1}</span>`}
+        </label>
+      `).join('');
 
       preview.classList.toggle('hidden', !state.showAllSteps);
+      saveState();
     }
 
     function completeCurrentTask() {
@@ -1880,8 +1899,8 @@ saveState();
     }
 
     function handleDone() {
-  completeCurrentTask();
-}
+      completeCurrentTask();
+    }
 
     function skipCurrentTask() {
       const idx = getCurrentTaskIndex();
@@ -1892,31 +1911,28 @@ saveState();
 
       addMessage('bot', 'تمام، أخرت هذه الخطوة وخليت اللي بعدها الحالية.');
       renderTasks();
+      saveState();
     }
 
     function toggleTask(index) {
+      const currentIndex = getCurrentTaskIndex();
 
-  const currentIndex = getCurrentTaskIndex();
+      if (index === currentIndex) {
+        completeCurrentTask();
+        return;
+      }
 
-  // إذا ضغط على المهمة الحالية
-  if (index === currentIndex) {
-    completeCurrentTask();
-    return;
-  }
+      if (index < currentIndex) {
+        state.tasks[index].done = false;
 
-  // إذا ضغط على مهمة قديمة → يرجع لها
-  if (index < currentIndex) {
-    state.tasks[index].done = false;
+        for (let i = index + 1; i < state.tasks.length; i++) {
+          state.tasks[i].done = false;
+        }
+      }
 
-    // يرجع كل اللي بعدها
-    for (let i = index + 1; i < state.tasks.length; i++) {
-      state.tasks[i].done = false;
+      renderTasks();
+      saveState();
     }
-  }
-
-  renderTasks();
-  saveState();
-}
 
     function openPlanEditor() {
       document.getElementById('plan-editor').classList.remove('hidden');
@@ -1930,7 +1946,7 @@ saveState();
     function savePlanEditor() {
       const raw = document.getElementById('plan-editor-textarea').value;
       const lines = raw.split('\n').map(s => s.trim()).filter(Boolean);
-    
+
       if (!lines.length) return;
 
       const doneTexts = state.tasks.filter(t => t.done).map(t => t.text);
@@ -1947,7 +1963,6 @@ saveState();
     }
 
     function toggleAllStepsPreview() {
-
       state.showAllSteps = !state.showAllSteps;
       document.getElementById('show-all-steps-btn').textContent = state.showAllSteps ? 'إخفاء تفاصيل الخطة' : 'عرض تفاصيل الخطة';
       renderTasks();
@@ -1955,7 +1970,7 @@ saveState();
 
     function startTimer() {
       const currentTask = getCurrentTask();
-      
+
       addMessage('bot', `بدأت شرارة العزم ⚡
 
 ركز 7 دقائق فقط على:
@@ -1991,38 +2006,41 @@ ${currentTask ? currentTask.text : 'الخطوة الحالية'}
           timerDone();
         }
       }, 1000);
+
       saveState();
     }
 
     function startShortTimer(seconds) {
-  const timerSection = document.getElementById('timer-section');
-  const sparkBtn = document.getElementById('spark-btn');
+      const timerSection = document.getElementById('timer-section');
+      const sparkBtn = document.getElementById('spark-btn');
 
-  sparkBtn.classList.add('hidden');
-  timerSection.classList.remove('hidden');
+      sparkBtn.classList.add('hidden');
+      timerSection.classList.remove('hidden');
 
-  if (state.timerInterval) clearInterval(state.timerInterval);
+      if (state.timerInterval) clearInterval(state.timerInterval);
 
-  state.timerTotal = seconds;
-  state.timerSeconds = seconds;
-  updateTimerDisplay();
+      state.timerTotal = seconds;
+      state.timerSeconds = seconds;
+      updateTimerDisplay();
 
-  state.timerInterval = setInterval(() => {
-    state.timerSeconds--;
-    updateTimerDisplay();
+      state.timerInterval = setInterval(() => {
+        state.timerSeconds--;
+        updateTimerDisplay();
 
-    if (state.timerSeconds <= 0) {
-      clearInterval(state.timerInterval);
-      state.timerInterval = null;
-      timerDone();
+        if (state.timerSeconds <= 0) {
+          clearInterval(state.timerInterval);
+          state.timerInterval = null;
+          timerDone();
+        }
+      }, 1000);
+
+      saveState();
     }
-  }, 1000);
-}
 
-function continueFocus() {
-  addMessage('bot', 'تمام 👌 نرجع نكمل 3 دقائق تركيز إضافية 🔥');
-  startShortTimer(180);
-}
+    function continueFocus() {
+      addMessage('bot', 'تمام 👌 نرجع نكمل 3 دقائق تركيز إضافية 🔥');
+      startShortTimer(180);
+    }
 
     function updateTimerDisplay() {
       const total = state.timerTotal || 420;
@@ -2050,36 +2068,39 @@ function continueFocus() {
       if (getCurrentTask()) {
         document.getElementById('spark-btn').classList.remove('hidden');
       }
+
+      saveState();
     }
 
-   function timerDone() {
-  document.getElementById('timer-section').classList.add('hidden');
+    function timerDone() {
+      document.getElementById('timer-section').classList.add('hidden');
 
-  if (getCurrentTask()) {
-    document.getElementById('spark-btn').classList.remove('hidden');
-  }
+      if (getCurrentTask()) {
+        document.getElementById('spark-btn').classList.remove('hidden');
+      }
 
-  updatePoints(20);
+      updatePoints(20);
 
-  addMessage('bot', `خلصت 7 دقائق 🔥🔥
+      addMessage('bot', `خلصت 7 دقائق 🔥🔥
 
 هل خلصت الخطوة؟`);
 
-  const quick = document.createElement('div');
-quick.className = 'msg bot';
+      const quick = document.createElement('div');
+      quick.className = 'msg bot';
 
-quick.innerHTML = `
-  <div class="avatar">✨</div>
-  <div class="bubble bot">
-    <button onclick="handleDone()" class="plan-btn primary">✅ تمت</button>
-    <button onclick="continueFocus()" class="ghost-btn">⏳ أكمّل</button>
-  </div>
-`;
+      quick.innerHTML = `
+        <div class="avatar">✨</div>
+        <div class="bubble bot">
+          <button onclick="handleDone()" class="plan-btn primary">✅ تمت</button>
+          <button onclick="continueFocus()" class="ghost-btn">⏳ أكمّل</button>
+        </div>
+      `;
 
-  document.getElementById('messages').appendChild(quick);
-
-  launchConfetti();
-}
+      document.getElementById('messages').appendChild(quick);
+      scrollBottom();
+      launchConfetti();
+      saveState();
+    }
 
     function toggleChatPanel() {
       state.chatCollapsed = !state.chatCollapsed;
@@ -2088,6 +2109,7 @@ quick.innerHTML = `
 
       panel.classList.toggle('collapsed', state.chatCollapsed);
       btn.textContent = state.chatCollapsed ? 'فتح' : 'إغلاق';
+      saveState();
     }
 
     function launchConfetti() {
@@ -2117,63 +2139,65 @@ quick.innerHTML = `
     }
 
     function restoreApp() {
-  const completedProfile =
-    state.profile &&
-    state.profile.name &&
-    state.profile.big_goal &&
-    state.profile.medium_goal &&
-    state.profile.feelings;
+      const completedProfile =
+        state.profile &&
+        state.profile.name &&
+        state.profile.big_goal &&
+        state.profile.medium_goal;
 
-  if (completedProfile) {
-    document.getElementById('screen-onboarding').classList.add('hidden');
-    document.getElementById('screen-chat').classList.remove('hidden');
+      if (completedProfile) {
+        document.getElementById('screen-onboarding').classList.add('hidden');
+        document.getElementById('screen-chat').classList.remove('hidden');
 
-    document.getElementById('header-name').textContent = state.profile.name || 'أهلاً';
-    document.getElementById('weekly-goal-text').textContent = state.profile.medium_goal || '—';
-    document.getElementById('dream-text').textContent = state.profile.feelings || '—';
+        document.getElementById('header-name').textContent = state.profile.name || 'أهلاً';
+        document.getElementById('weekly-goal-text').textContent = state.profile.medium_goal || '—';
+        document.getElementById('dream-text').textContent = state.profile.feelings || '—';
 
-    if (state.pendingTask) {
-      document.getElementById('focus-task-text').textContent = state.pendingTask;
-    } else {
-      document.getElementById('focus-task-text').textContent = 'وش المهمة اللي موقفك اليوم؟';
+        if (state.pendingTask) {
+          document.getElementById('focus-task-text').textContent = state.pendingTask;
+        } else {
+          document.getElementById('focus-task-text').textContent = 'وش المهمة اللي موقفك اليوم؟';
+        }
+
+        const currentTask = getCurrentTask();
+        document.getElementById('focus-next-text').textContent = currentTask
+          ? `الخطوة الحالية: ${currentTask.text}`
+          : 'أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.';
+
+        updatePoints(0);
+        setupInput();
+
+        const messagesBox = document.getElementById('messages');
+        messagesBox.innerHTML = '';
+
+        if (state.messages && state.messages.length) {
+          state.messages.forEach(msg => {
+            renderMessage(msg.role, msg.content);
+          });
+        } else {
+          messagesBox.innerHTML = `
+            <div class="empty-chat" id="empty-chat-text">
+              ابدأ بكتابة المهمة أو الشيء اللي موقفك اليوم.
+            </div>
+          `;
+        }
+
+        if (state.tasks && state.tasks.length) {
+          document.getElementById('tasks-section').classList.remove('hidden');
+          document.getElementById('plan-tools').classList.remove('hidden');
+          renderTasks();
+        }
+
+        if (state.chatCollapsed) {
+          document.getElementById('chat-panel').classList.add('collapsed');
+          document.getElementById('chat-toggle-btn').textContent = 'فتح';
+        }
+
+        scrollBottom();
+      } else {
+        renderStep();
+      }
     }
-
-    const currentTask = getCurrentTask();
-    document.getElementById('focus-next-text').textContent = currentTask
-      ? `الخطوة الحالية: ${currentTask.text}`
-      : 'أول خطوة واضحة بتظهر لك هنا بعد تقسيم المهمة.';
-
-    updatePoints(0);
-    setupInput();
-
-    // إعادة رسم الرسائل القديمة
-    const messagesBox = document.getElementById('messages');
-    messagesBox.innerHTML = '';
-
-    if (state.messages && state.messages.length) {
-      state.messages.forEach(msg => {
-        renderMessage(msg.role, msg.content);
-      });
-    } else {
-      messagesBox.innerHTML = `
-        <div class="empty-chat" id="empty-chat-text">
-          ابدأ بكتابة المهمة أو الشيء اللي موقفك اليوم.
-        </div>
-      `;
-    }
-
-    // إعادة رسم الخطة إذا موجودة
-    if (state.tasks && state.tasks.length) {
-      document.getElementById('tasks-section').classList.remove('hidden');
-      document.getElementById('plan-tools').classList.remove('hidden');
-      renderTasks();
-    }
-
-    scrollBottom();
-  } else {
-    renderStep();
-  }
-}
 
     document.getElementById('ob-next').addEventListener('click', advanceStep);
     document.getElementById('ob-input').addEventListener('keydown', e => {
