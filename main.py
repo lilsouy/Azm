@@ -3,7 +3,6 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
-
 from engine import ask_azm
 
 app = FastAPI()
