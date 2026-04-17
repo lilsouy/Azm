@@ -11,7 +11,7 @@ from engine import ask_azm, generate_steps_with_ai
 
 
 BASE_DIR = Path(__file__).resolve().parent
-INDEX_FILE = BASE_DIR / "index.html"
+INDEX_FILE = Path(__file__).parent / "index.html"
 
 app = FastAPI(title="Azm API", version="1.0.0")
 
@@ -61,7 +61,11 @@ def health():
 @app.post("/chat")
 def chat(req: ChatRequest):
     try:
-        payload_messages = [msg.model_dump() for msg in req.messages]
+        payload_messages = [
+    msg.model_dump()
+    for msg in req.messages
+    if msg.content.strip()
+        ]
         reply = ask_azm(payload_messages, profile=req.profile)
         return {"reply": reply}
     except Exception as e:
@@ -74,10 +78,20 @@ def chat(req: ChatRequest):
 @app.post("/steps")
 def steps(req: StepsRequest):
     try:
+        if not req.task.strip():
+            return {"steps": []}
+
         result = generate_steps_with_ai(req.task, profile=req.profile)
         return {"steps": result}
+
     except Exception as e:
         return JSONResponse(
             status_code=500,
             content={"error": "صار خطأ أثناء توليد الخطوات", "details": str(e)}
         )
+    
+@app.middleware("http")
+async def add_process_time_header(request, call_next):
+    response = await call_next(request)
+    response.headers["X-App"] = "Azm"
+    return response
